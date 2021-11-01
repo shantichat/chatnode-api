@@ -54,6 +54,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Image'
+    delete:
+      summary: "Remove self icon"
+      response:
+        '200':
+          description: OK
 
 #  /media:
 #    get:
