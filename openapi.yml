@@ -10,6 +10,15 @@ paths:
   /contacts:
     get:
       summary: "Returns list of my contacts"
+      response:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
 
   /contacts/{contactUid}:
     get:
@@ -20,7 +29,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Contact'
+                $ref: '#/components/schemas/User'
 
   /contacts/{contactUid}/icon:
     get:
@@ -42,7 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Contact'
+                $ref: '#/components/schemas/User'
 
   /contacts/me/icon:
     get:
@@ -117,7 +126,7 @@ components:
         - w
         - h
 
-    Contact:
+    User:
       allOf:
         - $ref: '#/components/schemas/BaseEntity'
         - type: object
