@@ -13,5 +13,5 @@ jobs:
       - name: redoc-cli test
         uses: seeebiii/redoc-cli-github-action@v10
         with:
-          args: 'bundle openapi.yml -o index.html''
+          args: 'bundle openapi.yml -o index.html'
       - run: ls -lah
