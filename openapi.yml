@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: ChatNode API
   description: REST API prototype (unstalbe, still in active development)
@@ -128,8 +128,9 @@ components:
           example: "2020-07-10 10:10:00.000"
           readOnly: true
         deleted:
-          type: bool
+          type: boolean
           readOnly: true
+          allowEmptyValue: true
 
     Image:
       title: 'Image for preview'
@@ -150,6 +151,7 @@ components:
         blurhash:
           type: string
           example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
+          allowEmptyValue: true
           readOnly: true
       required:
         - url
@@ -168,15 +170,18 @@ components:
             description:
               type: string
               example: "The One"
+              allowEmptyValue: true
             icon:
               $ref: '#/components/schemas/Image'
             timezone:
               type: string
               example: "America/Chicago"
+              allowEmptyValue: true
             last_online_at:
               type: string
               format: date-time
               example: "2020-07-10 15:00:00.000"
+              allowEmptyValue: true
               readOnly: true
 
 # TODO:
