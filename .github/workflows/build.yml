@@ -19,7 +19,7 @@ jobs:
           node-version: '14'
       - run: npm install @openapitools/openapi-generator-cli -g
       - name: Generate
-        run: npx @openapitools/openapi-generator-cli generate -skipValidateSpec -i openapi.yml -g html -o public/
+        run: npx @openapitools/openapi-generator-cli generate --skip-validate-spec -i openapi.yml -g html -o public/
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
