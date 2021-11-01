@@ -18,7 +18,5 @@ jobs:
 
       - name: Generate
         run: |
-          JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-          export PATH=${JAVA_HOME}/bin:$PATH
-
+          echo "JAVA_HOME: ${JAVA_HOME}"
           ./openapi-generator-cli version
