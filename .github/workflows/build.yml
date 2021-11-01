@@ -15,8 +15,8 @@ jobs:
         run: |
           wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.3.0/openapi-generator-cli-5.3.0.jar -O openapi-generator-cli.jar
           curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > openapi-generator-cli
+          chmod +x openapi-generator-cli
 
       - name: Generate
         run: |
-          echo "JAVA_HOME: ${JAVA_HOME}"
           ./openapi-generator-cli version
