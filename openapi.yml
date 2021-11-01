@@ -10,7 +10,7 @@ paths:
   /contacts:
     get:
       summary: "Returns list of my contacts"
-      response:
+      responses:
         '200':
           description: OK
           content:
@@ -23,7 +23,7 @@ paths:
   /contacts/{contactUid}:
     get:
       summary: "Returns contact by UID"
-      response:
+      responses:
         '200':
           description: OK
           content:
@@ -34,7 +34,7 @@ paths:
   /contacts/{contactUid}/icon:
     get:
       summary: "Returns contact icon in full resolution"
-      response:
+      responses:
         '200':
           description: OK
           content:
@@ -45,7 +45,7 @@ paths:
   /contacts/me:
     get:
       summary: "Returns self contact"
-      response:
+      responses:
         '200':
           description: OK
           content:
@@ -56,7 +56,7 @@ paths:
   /contacts/me/icon:
     get:
       summary: "Returns self icon in full resolution"
-      response:
+      responses:
         '200':
           description: OK
           content:
@@ -65,7 +65,7 @@ paths:
                 $ref: '#/components/schemas/Image'
     delete:
       summary: "Remove self icon"
-      response:
+      responses:
         '200':
           description: OK
 
