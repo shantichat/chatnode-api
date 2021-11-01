@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chatnode API</title>
+  <title>ChatNode API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -853,7 +853,8 @@ ul.nav-tabs {
     "uid" : {
       "type" : "string",
       "format" : "nanoid",
-      "readOnly" : true
+      "readOnly" : true,
+      "example" : "njbusD52k6YoRG346tPgD"
     },
     "created_at" : {
       "type" : "string",
@@ -878,19 +879,23 @@ ul.nav-tabs {
   "properties" : {
     "url" : {
       "type" : "string",
-      "readOnly" : true
+      "readOnly" : true,
+      "example" : "https://shantichat.com/data/"
     },
     "width" : {
       "type" : "int",
-      "readOnly" : true
+      "readOnly" : true,
+      "example" : 640
     },
     "height" : {
       "type" : "int",
-      "readOnly" : true
+      "readOnly" : true,
+      "example" : 480
     },
     "blurhash" : {
       "type" : "string",
-      "readOnly" : true
+      "readOnly" : true,
+      "example" : "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
     }
   }
 };
@@ -906,16 +911,19 @@ ul.nav-tabs {
   "type" : "object",
   "properties" : {
     "name" : {
-      "type" : "string"
+      "type" : "string",
+      "example" : "Thomas A. Anderson"
     },
     "description" : {
-      "type" : "string"
+      "type" : "string",
+      "example" : "The One"
     },
     "icon" : {
       "$ref" : "#/components/schemas/Image"
     },
     "timezone" : {
-      "type" : "string"
+      "type" : "string",
+      "example" : "America/Chicago"
     },
     "last_online_at" : {
       "type" : "string",
@@ -967,7 +975,7 @@ ul.nav-tabs {
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>Chatnode API</h1>
+            <h1>ChatNode API</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -1093,10 +1101,10 @@ String *contactUid = contactUid_example; //  (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var contactUid = contactUid_example; // {String} 
 
 var callback = function(error, data, response) {
@@ -1434,10 +1442,10 @@ String *contactUid = contactUid_example; //  (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var contactUid = contactUid_example; // {String} 
 
 var callback = function(error, data, response) {
@@ -1772,10 +1780,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2076,10 +2084,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsMeGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2371,10 +2379,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2624,10 +2632,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatnodeApi = require('chatnode_api');
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
-var api = new ChatnodeApi.DefaultApi()
+var api = new ChatNodeApi.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
