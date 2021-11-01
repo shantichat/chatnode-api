@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Chatnode API
+  title: ChatNode API
   description: REST API prototype (unstalbe, still in active development)
   version: 0.1.0
 
@@ -113,13 +113,16 @@ components:
           type: string
           format: nanoid
           readOnly: true
+          example: 'njbusD52k6YoRG346tPgD'
         created_at:
           type: string
           format: date-time
+          example: "1999-03-31 15:00:00.000"
           readOnly: true
         updated_at:
           type: string
           format: date-time
+          example: "2020-07-10 10:10:00.000"
           readOnly: true
         deleted:
           type: bool
@@ -132,15 +135,19 @@ components:
         url:
           type: string
           readOnly: true
+          example: 'https://shantichat.com/data/'
         width:
           type: int
           readOnly: true
+          example: 640
         height:
           type: int
           readOnly: true
+          example: 480
         blurhash:
           type: string
           readOnly: true
+          example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
       required:
         - url
         - width
@@ -154,15 +161,19 @@ components:
           properties:
             name:
               type: string
+              example: "Thomas A. Anderson"
             description:
               type: string
+              example: "The One"
             icon:
               $ref: '#/components/schemas/Image'
             timezone:
               type: string
+              example: "America/Chicago"
             last_online_at:
               type: string
               format: date-time
+              example: "2020-07-10 15:00:00.000"
               readOnly: true
 
 # TODO:
