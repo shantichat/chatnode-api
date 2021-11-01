@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: Chatnode API
+  version: 0.1.0
+
+servers:
+  - url: https://api.shantichat.com/v1
+
+paths:
+  /contacts:
+    get:
+      summary: "Returns list of my contacts"
+
+  /contacts/{contactUid}:
+    get:
+      summary: "Returns contact by UID"
+
+  /contacts/me:
+    get:
+      summary: "Returns self contact"
+
+#  /media:
+#    get:
+#      summary: "Returns list of my media"
+#
+#  /media/{mediaUid}:
+#    get:
+#      summary: "Returns media by UID"
+#
+#  /conversations:
+#  /conversations/{conversationUid}:
+#  /conversations/{conversationUid}/media:
+#  /conversations/{conversationUid}/participants:
+#  /conversations/{conversationUid}/participants/{contactUid}:
+#  /conversations/{conversationUid}/messages:
+#  /conversations/{conversationUid}/messages/{messageUid}:
+#  /conversations/{conversationUid}/messages/{messageUid}/read:
+#  /conversations/{conversationUid}/messages/{messageUid}/reactions:
+
+components:
+  schemas:
+    Contact:
+      type: object
+      properties:
+        uid:
+          type: string
+          format: nanoid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        deleted:
+          type: bool
+          format: date-time
+
+# TODO:
+#  /invitations/invite:
+#
+#// ## Projects
+#// /api/v1/spaces
+#// /api/v1/spaces/[uid]
+#//
+#// /api/v1/spaces/[uid]/members
+#// /api/v1/spaces/[uid]/members/me
+#// /api/v1/spaces/[uid]/members/[uid]
+#//
+#// /api/v1/spaces/[uid]/conversations
+#// /api/v1/spaces/[uid]/conversations/[uid]
+#//
+#// /api/v1/spaces/[uid]/conversations/[uid]/media
+#//
+#// /api/v1/spaces/[uid]/conversations/[uid]/participants
+#// /api/v1/spaces/[uid]/conversations/[uid]/participants/[uid]
+#//
+#// /api/v1/spaces/[uid]/conversations/[uid]/messages
+#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]
+#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]/read
+#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]/reactions
