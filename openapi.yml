@@ -12,6 +12,7 @@ paths:
     get:
       summary: "Returns list of my contacts"
       description: ''
+      operationId: getContacts
       responses:
         '200':
           description: OK
@@ -26,6 +27,7 @@ paths:
     get:
       summary: "Returns contact by UID"
       description: ''
+      operationId: getContactByUID
       parameters:
         - name: contactUid
           in: path
@@ -45,6 +47,7 @@ paths:
     get:
       summary: "Returns contact icon in full resolution"
       description: ''
+      operationId: getContactIcon
       parameters:
         - name: contactUid
           in: path
@@ -64,6 +67,7 @@ paths:
     get:
       summary: "Returns self contact"
       description: ''
+      operationId: getMyInfo
       responses:
         '200':
           description: OK
@@ -76,6 +80,7 @@ paths:
     get:
       summary: "Returns self icon in full resolution"
       description: ''
+      operationId: getMyIcon
       responses:
         '200':
           description: OK
@@ -86,6 +91,7 @@ paths:
     delete:
       summary: "Remove self icon"
       description: ''
+      operationId: deleteMyIcon
       responses:
         '200':
           description: OK
@@ -109,8 +115,8 @@ components:
         uid:
           type: string
           format: nanoid
-          readOnly: true
           example: 'njbusD52k6YoRG346tPgD'
+          readOnly: true
         created_at:
           type: string
           format: date-time
@@ -131,20 +137,20 @@ components:
       properties:
         url:
           type: string
+          example: 'https://shantichat.com/data/V1StGXR8_Z5jdHi6B-myT/white-rabbit.png'
           readOnly: true
-          example: 'https://shantichat.com/data/'
         width:
           type: int
+          example: 128
           readOnly: true
-          example: 640
         height:
           type: int
+          example: 128
           readOnly: true
-          example: 480
         blurhash:
           type: string
-          readOnly: true
           example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
+          readOnly: true
       required:
         - url
         - width
