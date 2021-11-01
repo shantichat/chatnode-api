@@ -22,7 +22,7 @@ jobs:
         run: |
           npx @openapitools/openapi-generator-cli generate \
             -i openapi.yml \
-            -g dynamic-html \
+            -g html2 \
             -o public/
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
