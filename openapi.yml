@@ -129,8 +129,9 @@ components:
           readOnly: true
         deleted:
           type: boolean
-          readOnly: true
+          example: false
           allowEmptyValue: true
+          readOnly: true
 
     Image:
       title: 'Image for preview'
