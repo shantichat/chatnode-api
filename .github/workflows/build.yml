@@ -10,28 +10,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install yaml2json
-        run: |
-          curl -Lo yaml2json https://github.com/wakeful/yaml2json/releases/latest/download/yaml2json-linux-amd64
-          chmod +x yaml2json
-
-      - name: Generate json
-        run: |
-          ./yaml2json openapi.yaml > openapi.json
-          cat openapi.json
-
-      - name: Install openapi-generator-cli
-        run: |
-          wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.3.0/openapi-generator-cli-5.3.0.jar -O openapi-generator-cli.jar
-          curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > openapi-generator-cli
-          chmod +x openapi-generator-cli
-          ./openapi-generator-cli version
-
-      - name: Generate
-        run: |
-          ./openapi-generator-cli generate \
-            -i openapi.json \
-            -g html \
-            -o html
-          ls -lah html
+      - name: redoc-cli test
+        uses: seeebiii/redoc-cli-github-action@v10
+        with:
+          args: 'bundle openapi.yml -o index.html''
+      - run: ls -lah
