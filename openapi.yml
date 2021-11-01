@@ -23,6 +23,13 @@ paths:
   /contacts/{contactUid}:
     get:
       summary: "Returns contact by UID"
+      parameters:
+        - name: contactUid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: nanoid
       responses:
         '200':
           description: OK
@@ -34,6 +41,13 @@ paths:
   /contacts/{contactUid}/icon:
     get:
       summary: "Returns contact icon in full resolution"
+      parameters:
+        - name: contactUid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: nanoid
       responses:
         '200':
           description: OK
