@@ -1,6 +1,10 @@
 openapi: 3.1.0
 info:
+<<<<<<< HEAD
   title: Chatnode REST API
+=======
+  title: Chatnode API
+>>>>>>> 38861a0b59f5e141ed67b2a0438a10daa60511dc
   version: 0.1.0
 
 servers:
