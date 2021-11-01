@@ -78,22 +78,22 @@ components:
 
     BaseEntity:
       type: object
-        properties:
-          uid:
-            type: string
-            format: nanoid
-            readOnly: true
-          created_at:
-            type: string
-            format: date-time
-            readOnly: true
-          updated_at:
-            type: string
-            format: date-time
-            readOnly: true
-          deleted:
-            type: bool
-            readOnly: true
+      properties:
+        uid:
+          type: string
+          format: nanoid
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        deleted:
+          type: bool
+          readOnly: true
 
     Image:
       type: object
