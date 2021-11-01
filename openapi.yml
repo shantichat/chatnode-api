@@ -14,10 +14,46 @@ paths:
   /contacts/{contactUid}:
     get:
       summary: "Returns contact by UID"
+      response:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+
+  /contacts/{contactUid}/icon:
+    get:
+      summary: "Returns contact icon in full resolution"
+      response:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
 
   /contacts/me:
     get:
       summary: "Returns self contact"
+      response:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+
+  /contacts/me/icon:
+    get:
+      summary: "Returns self icon in full resolution"
+      response:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
 
 #  /media:
 #    get:
@@ -39,21 +75,60 @@ paths:
 
 components:
   schemas:
-    Contact:
+
+    BaseEntity:
+      type: object
+        properties:
+          uid:
+            type: string
+            format: nanoid
+            readOnly: true
+          created_at:
+            type: string
+            format: date-time
+            readOnly: true
+          updated_at:
+            type: string
+            format: date-time
+            readOnly: true
+          deleted:
+            type: bool
+            readOnly: true
+
+    Image:
       type: object
       properties:
-        uid:
+        url:
           type: string
-          format: nanoid
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        deleted:
-          type: bool
-          format: date-time
+          readOnly: true
+        w:
+          type: int
+          readOnly: true
+        h:
+          type: int
+          readOnly: true
+      required:
+        - url
+        - w
+        - h
+
+    Contact:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            icon:
+              $ref: '#/components/schemas/Image'
+            timezone:
+              type: string
+            last_online_at:
+              type: string
+              format: date-time
+              readOnly: true
 
 # TODO:
 #  /invitations/invite:
