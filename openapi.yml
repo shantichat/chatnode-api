@@ -23,13 +23,13 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
 
-  /contacts/{contactUid}:
+  /contacts/{userUid}:
     get:
       summary: "Returns contact by UID"
       description: ''
       operationId: getContactInfo
       parameters:
-        - name: contactUid
+        - name: userUid
           in: path
           required: true
           schema:
@@ -43,13 +43,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
 
-  /contacts/{contactUid}/icon:
+  /contacts/{userUid}/icon:
     get:
       summary: "Returns contact icon in full resolution"
       description: ''
       operationId: getContactIcon
       parameters:
-        - name: contactUid
+        - name: userUid
           in: path
           required: true
           schema:
@@ -185,7 +185,7 @@ components:
 #  /conversations/{conversationUid}:
 #  /conversations/{conversationUid}/media:
 #  /conversations/{conversationUid}/participants:
-#  /conversations/{conversationUid}/participants/{contactUid}:
+#  /conversations/{conversationUid}/participants/{userUid}:
 #  /conversations/{conversationUid}/messages:
 #  /conversations/{conversationUid}/messages/{messageUid}:
 #  /conversations/{conversationUid}/messages/{messageUid}/read:
