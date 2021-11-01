@@ -11,19 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir public
-#      - uses: seeebiii/redoc-cli-github-action@v10
-#        with:
-#          args: 'bundle openapi.yml -o public/index.html'
-      - uses: actions/setup-node@v2
+      - uses: seeebiii/redoc-cli-github-action@v10
         with:
-          node-version: '14'
-      - run: npm install @openapitools/openapi-generator-cli -g
-      - name: Generate
-        run: |
-          npx @openapitools/openapi-generator-cli generate \
-            -i openapi.yml \
-            -g html2 \
-            -o public/
+          args: 'bundle openapi.yml -o public/index.html'
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: '14'
+#      - run: npm install @openapitools/openapi-generator-cli -g
+#      - name: Generate
+#        run: |
+#          npx @openapitools/openapi-generator-cli generate \
+#            -i openapi.yml \
+#            -g html2 \
+#            -o public/
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
