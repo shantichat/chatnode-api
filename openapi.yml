@@ -4,7 +4,7 @@ info:
   version: 0.1.0
 
 servers:
-  - url: https://api.shantichat.com/v1
+  - url: https://shantichat.com/api/v1
 
 paths:
   /contacts:
