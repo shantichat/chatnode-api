@@ -17,7 +17,9 @@ jobs:
           chmod +x yaml2json
 
       - name: Generate json
-        run: ./yaml2json openapi.yaml openapi.json
+        run: |
+          ./yaml2json openapi.yaml > openapi.json
+          cat openapi.json
 
       - name: Install openapi-generator-cli
         run: |
