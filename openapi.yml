@@ -105,6 +105,7 @@ components:
   schemas:
 
     BaseEntity:
+      title: 'Parent of most important objects'
       type: object
       properties:
         uid:
@@ -124,23 +125,28 @@ components:
           readOnly: true
 
     Image:
+      title: 'Image for preview'
       type: object
       properties:
         url:
           type: string
           readOnly: true
-        w:
+        width:
           type: int
           readOnly: true
-        h:
+        height:
           type: int
+          readOnly: true
+        blurhash:
+          type: string
           readOnly: true
       required:
         - url
-        - w
-        - h
+        - width
+        - height
 
     User:
+      title: 'User object'
       allOf:
         - $ref: '#/components/schemas/BaseEntity'
         - type: object
