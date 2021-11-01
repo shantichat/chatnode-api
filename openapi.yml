@@ -11,6 +11,7 @@ paths:
   /contacts:
     get:
       summary: "Returns list of my contacts"
+      description: ''
       responses:
         '200':
           description: OK
@@ -24,6 +25,7 @@ paths:
   /contacts/{contactUid}:
     get:
       summary: "Returns contact by UID"
+      description: ''
       parameters:
         - name: contactUid
           in: path
@@ -42,6 +44,7 @@ paths:
   /contacts/{contactUid}/icon:
     get:
       summary: "Returns contact icon in full resolution"
+      description: ''
       parameters:
         - name: contactUid
           in: path
@@ -60,6 +63,7 @@ paths:
   /contacts/me:
     get:
       summary: "Returns self contact"
+      description: ''
       responses:
         '200':
           description: OK
@@ -71,6 +75,7 @@ paths:
   /contacts/me/icon:
     get:
       summary: "Returns self icon in full resolution"
+      description: ''
       responses:
         '200':
           description: OK
@@ -80,6 +85,7 @@ paths:
                 $ref: '#/components/schemas/Image'
     delete:
       summary: "Remove self icon"
+      description: ''
       responses:
         '200':
           description: OK
@@ -92,15 +98,6 @@ paths:
 #    get:
 #      summary: "Returns media by UID"
 #
-#  /conversations:
-#  /conversations/{conversationUid}:
-#  /conversations/{conversationUid}/media:
-#  /conversations/{conversationUid}/participants:
-#  /conversations/{conversationUid}/participants/{contactUid}:
-#  /conversations/{conversationUid}/messages:
-#  /conversations/{conversationUid}/messages/{messageUid}:
-#  /conversations/{conversationUid}/messages/{messageUid}/read:
-#  /conversations/{conversationUid}/messages/{messageUid}/reactions:
 
 components:
   schemas:
@@ -177,6 +174,17 @@ components:
               readOnly: true
 
 # TODO:
+
+#  /conversations:
+#  /conversations/{conversationUid}:
+#  /conversations/{conversationUid}/media:
+#  /conversations/{conversationUid}/participants:
+#  /conversations/{conversationUid}/participants/{contactUid}:
+#  /conversations/{conversationUid}/messages:
+#  /conversations/{conversationUid}/messages/{messageUid}:
+#  /conversations/{conversationUid}/messages/{messageUid}/read:
+#  /conversations/{conversationUid}/messages/{messageUid}/reactions:
+
 #  /invitations/invite:
 #
 #// ## Projects
