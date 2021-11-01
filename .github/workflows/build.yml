@@ -11,6 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install yaml2json
+        run: |
+          curl -Lo yaml2json https://github.com/wakeful/yaml2json/releases/latest/download/yaml2json-linux-amd64
+          chmod +x yaml2json
+
+      - name: Generate json
+        run: ./yaml2json openapi.yaml openapi.json
+
       - name: Install openapi-generator-cli
         run: |
           wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.3.0/openapi-generator-cli-5.3.0.jar -O openapi-generator-cli.jar
@@ -21,7 +29,7 @@ jobs:
       - name: Generate
         run: |
           ./openapi-generator-cli generate \
-            -i openapi.yaml \
+            -i openapi.json \
             -g html \
             -o html
           ls -lah html
