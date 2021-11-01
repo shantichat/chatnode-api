@@ -10,12 +10,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: redoc-cli test
-        uses: seeebiii/redoc-cli-github-action@v10
+      - run: mkdir public
+      - uses: seeebiii/redoc-cli-github-action@v10
         with:
-          args: 'bundle openapi.yml -o index.html'
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+          args: 'bundle openapi.yml -o public/index.html'
+      - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
