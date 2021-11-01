@@ -880,17 +880,17 @@ ul.nav-tabs {
     "url" : {
       "type" : "string",
       "readOnly" : true,
-      "example" : "https://shantichat.com/data/"
+      "example" : "https://shantichat.com/data/V1StGXR8_Z5jdHi6B-myT/white-rabbit.png"
     },
     "width" : {
       "type" : "int",
       "readOnly" : true,
-      "example" : 640
+      "example" : 128
     },
     "height" : {
       "type" : "int",
       "readOnly" : true,
-      "example" : 480
+      "example" : 128
     },
     "blurhash" : {
       "type" : "string",
@@ -951,23 +951,23 @@ ul.nav-tabs {
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="contactsContactUidGet" class="">
-                      <a href="#api-Default-contactsContactUidGet">contactsContactUidGet</a>
+                    <li data-group="Default" data-name="deleteMyIcon" class="">
+                      <a href="#api-Default-deleteMyIcon">deleteMyIcon</a>
                     </li>
-                    <li data-group="Default" data-name="contactsContactUidIconGet" class="">
-                      <a href="#api-Default-contactsContactUidIconGet">contactsContactUidIconGet</a>
+                    <li data-group="Default" data-name="getContactByUID" class="">
+                      <a href="#api-Default-getContactByUID">getContactByUID</a>
                     </li>
-                    <li data-group="Default" data-name="contactsGet" class="">
-                      <a href="#api-Default-contactsGet">contactsGet</a>
+                    <li data-group="Default" data-name="getContactIcon" class="">
+                      <a href="#api-Default-getContactIcon">getContactIcon</a>
                     </li>
-                    <li data-group="Default" data-name="contactsMeGet" class="">
-                      <a href="#api-Default-contactsMeGet">contactsMeGet</a>
+                    <li data-group="Default" data-name="getContacts" class="">
+                      <a href="#api-Default-getContacts">getContacts</a>
                     </li>
-                    <li data-group="Default" data-name="contactsMeIconDelete" class="">
-                      <a href="#api-Default-contactsMeIconDelete">contactsMeIconDelete</a>
+                    <li data-group="Default" data-name="getMyIcon" class="">
+                      <a href="#api-Default-getMyIcon">getMyIcon</a>
                     </li>
-                    <li data-group="Default" data-name="contactsMeIconGet" class="">
-                      <a href="#api-Default-contactsMeIconGet">contactsMeIconGet</a>
+                    <li data-group="Default" data-name="getMyInfo" class="">
+                      <a href="#api-Default-getMyInfo">getMyInfo</a>
                     </li>
           </ul>
         </nav>
@@ -992,10 +992,257 @@ ul.nav-tabs {
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
-                    <div id="api-Default-contactsContactUidGet">
-                      <article id="api-Default-contactsContactUidGet-0" data-group="User" data-name="contactsContactUidGet" data-version="0">
+                    <div id="api-Default-deleteMyIcon">
+                      <article id="api-Default-deleteMyIcon-0" data-group="User" data-name="deleteMyIcon" data-version="0">
                         <div class="pull-left">
-                          <h1>contactsContactUidGet</h1>
+                          <h1>deleteMyIcon</h1>
+                          <p>Remove self icon</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/contacts/me/icon</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-deleteMyIcon-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-deleteMyIcon-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-deleteMyIcon-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-deleteMyIcon-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-deleteMyIcon-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
+ "https://shantichat.com/api/v1/contacts/me/icon"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-deleteMyIcon-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+
+        try {
+            apiInstance.deleteMyIcon();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#deleteMyIcon");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-deleteMyIcon-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+
+        try {
+            apiInstance.deleteMyIcon();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#deleteMyIcon");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-deleteMyIcon-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Remove self icon
+[apiInstance deleteMyIconWithCompletionHandler: 
+              ^(NSError* error) {
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
+
+// Create an instance of the API class
+var api = new ChatNodeApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.deleteMyIcon(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-deleteMyIcon-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class deleteMyIconExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+
+            try {
+                // Remove self icon
+                apiInstance.deleteMyIcon();
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.deleteMyIcon: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+
+try {
+    $api_instance->deleteMyIcon();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->deleteMyIcon: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+
+eval {
+    $api_instance->deleteMyIcon();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->deleteMyIcon: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+
+try:
+    # Remove self icon
+    api_instance.delete_my_icon()
+except ApiException as e:
+    print("Exception when calling DefaultApi->deleteMyIcon: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-deleteMyIcon-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.deleteMyIcon(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-deleteMyIcon-title-200"></h3>
+                            <p id="examples-Default-deleteMyIcon-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-deleteMyIcon-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-deleteMyIcon-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-deleteMyIcon-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-deleteMyIcon-200" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-deleteMyIcon-200-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-getContactByUID">
+                      <article id="api-Default-getContactByUID-0" data-group="User" data-name="getContactByUID" data-version="0">
+                        <div class="pull-left">
+                          <h1>getContactByUID</h1>
                           <p>Returns contact by UID</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1009,28 +1256,28 @@ ul.nav-tabs {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsContactUidGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsContactUidGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsContactUidGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getContactByUID-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContactByUID-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getContactByUID-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContactByUID-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getContactByUID-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getContactByUID-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsContactUidGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getContactByUID-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
  "https://shantichat.com/api/v1/contacts/{contactUid}"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getContactByUID-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -1047,10 +1294,10 @@ public class DefaultApiExample {
         String contactUid = contactUid_example; // String | 
 
         try {
-            User result = apiInstance.contactsContactUidGet(contactUid);
+            User result = apiInstance.getContactByUID(contactUid);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsContactUidGet");
+            System.err.println("Exception when calling DefaultApi#getContactByUID");
             e.printStackTrace();
         }
     }
@@ -1058,7 +1305,7 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getContactByUID-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1067,20 +1314,20 @@ public class DefaultApiExample {
         String contactUid = contactUid_example; // String | 
 
         try {
-            User result = apiInstance.contactsContactUidGet(contactUid);
+            User result = apiInstance.getContactByUID(contactUid);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsContactUidGet");
+            System.err.println("Exception when calling DefaultApi#getContactByUID");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getContactByUID-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
@@ -1088,7 +1335,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *contactUid = contactUid_example; //  (default to null)
 
 // Returns contact by UID
-[apiInstance contactsContactUidGetWith:contactUid
+[apiInstance getContactByUIDWith:contactUid
               completionHandler: ^(User output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1100,7 +1347,7 @@ String *contactUid = contactUid_example; //  (default to null)
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
@@ -1114,14 +1361,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.contactsContactUidGet(contactUid, callback);
+api.getContactByUID(contactUid, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-contactsContactUidGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getContactByUID-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1130,7 +1377,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class contactsContactUidGetExample
+    public class getContactByUIDExample
     {
         public void main()
         {
@@ -1141,10 +1388,10 @@ namespace Example
 
             try {
                 // Returns contact by UID
-                User result = apiInstance.contactsContactUidGet(contactUid);
+                User result = apiInstance.getContactByUID(contactUid);
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsContactUidGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getContactByUID: " + e.Message );
             }
         }
     }
@@ -1152,7 +1399,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1161,15 +1408,15 @@ $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $contactUid = contactUid_example; // String | 
 
 try {
-    $result = $api_instance->contactsContactUidGet($contactUid);
+    $result = $api_instance->getContactByUID($contactUid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsContactUidGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getContactByUID: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -1179,15 +1426,15 @@ my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $contactUid = contactUid_example; # String | 
 
 eval {
-    my $result = $api_instance->contactsContactUidGet(contactUid => $contactUid);
+    my $result = $api_instance->getContactByUID(contactUid => $contactUid);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->contactsContactUidGet: $@\n";
+    warn "Exception when calling DefaultApi->getContactByUID: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1200,20 +1447,20 @@ contactUid = contactUid_example # String |  (default to null)
 
 try:
     # Returns contact by UID
-    api_response = api_instance.contacts_contact_uid_get(contactUid)
+    api_response = api_instance.get_contact_by_uid(contactUid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->contactsContactUidGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getContactByUID: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getContactByUID-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
     let contactUid = contactUid_example; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.contactsContactUidGet(contactUid, &context).wait();
+    let result = client.getContactByUID(contactUid, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1238,7 +1485,7 @@ pub fn main() {
 <td>
 
 
-    <div id="d2e199_contactsContactUidGet_contactUid">
+    <div id="d2e199_getContactByUID_contactUid">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1264,23 +1511,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsContactUidGet-title-200"></h3>
-                            <p id="examples-Default-contactsContactUidGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getContactByUID-title-200"></h3>
+                            <p id="examples-Default-getContactByUID-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `OK`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsContactUidGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getContactByUID-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-contactsContactUidGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsContactUidGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getContactByUID-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getContactByUID-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-contactsContactUidGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getContactByUID-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-contactsContactUidGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getContactByUID-200-schema">Schema</a>
                                 </li>
 
 
@@ -1289,9 +1536,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-contactsContactUidGet-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-contactsContactUidGet-200-schema">
-                                  <div id="responses-Default-contactsContactUidGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getContactByUID-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-getContactByUID-200-schema">
+                                  <div id="responses-Default-getContactByUID-schema-200" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1320,23 +1567,23 @@ pub fn main() {
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-contactsContactUidGet-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-contactsContactUidGet-schema-200');
+                                        $('#responses-Default-getContactByUID-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-getContactByUID-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-Default-contactsContactUidGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-Default-getContactByUID-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-contactsContactUidIconGet">
-                      <article id="api-Default-contactsContactUidIconGet-0" data-group="User" data-name="contactsContactUidIconGet" data-version="0">
+                    <div id="api-Default-getContactIcon">
+                      <article id="api-Default-getContactIcon-0" data-group="User" data-name="getContactIcon" data-version="0">
                         <div class="pull-left">
-                          <h1>contactsContactUidIconGet</h1>
+                          <h1>getContactIcon</h1>
                           <p>Returns contact icon in full resolution</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1350,28 +1597,28 @@ pub fn main() {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsContactUidIconGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsContactUidIconGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsContactUidIconGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsContactUidIconGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getContactIcon-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContactIcon-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getContactIcon-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContactIcon-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getContactIcon-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getContactIcon-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsContactUidIconGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getContactIcon-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
  "https://shantichat.com/api/v1/contacts/{contactUid}/icon"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getContactIcon-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -1388,10 +1635,10 @@ public class DefaultApiExample {
         String contactUid = contactUid_example; // String | 
 
         try {
-            Image result = apiInstance.contactsContactUidIconGet(contactUid);
+            Image result = apiInstance.getContactIcon(contactUid);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsContactUidIconGet");
+            System.err.println("Exception when calling DefaultApi#getContactIcon");
             e.printStackTrace();
         }
     }
@@ -1399,7 +1646,7 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getContactIcon-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1408,20 +1655,20 @@ public class DefaultApiExample {
         String contactUid = contactUid_example; // String | 
 
         try {
-            Image result = apiInstance.contactsContactUidIconGet(contactUid);
+            Image result = apiInstance.getContactIcon(contactUid);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsContactUidIconGet");
+            System.err.println("Exception when calling DefaultApi#getContactIcon");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getContactIcon-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
@@ -1429,7 +1676,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *contactUid = contactUid_example; //  (default to null)
 
 // Returns contact icon in full resolution
-[apiInstance contactsContactUidIconGetWith:contactUid
+[apiInstance getContactIconWith:contactUid
               completionHandler: ^(Image output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1441,7 +1688,7 @@ String *contactUid = contactUid_example; //  (default to null)
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
@@ -1455,14 +1702,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.contactsContactUidIconGet(contactUid, callback);
+api.getContactIcon(contactUid, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getContactIcon-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1471,7 +1718,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class contactsContactUidIconGetExample
+    public class getContactIconExample
     {
         public void main()
         {
@@ -1482,10 +1729,10 @@ namespace Example
 
             try {
                 // Returns contact icon in full resolution
-                Image result = apiInstance.contactsContactUidIconGet(contactUid);
+                Image result = apiInstance.getContactIcon(contactUid);
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsContactUidIconGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getContactIcon: " + e.Message );
             }
         }
     }
@@ -1493,7 +1740,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1502,15 +1749,15 @@ $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $contactUid = contactUid_example; // String | 
 
 try {
-    $result = $api_instance->contactsContactUidIconGet($contactUid);
+    $result = $api_instance->getContactIcon($contactUid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsContactUidIconGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getContactIcon: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -1520,15 +1767,15 @@ my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $contactUid = contactUid_example; # String | 
 
 eval {
-    my $result = $api_instance->contactsContactUidIconGet(contactUid => $contactUid);
+    my $result = $api_instance->getContactIcon(contactUid => $contactUid);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->contactsContactUidIconGet: $@\n";
+    warn "Exception when calling DefaultApi->getContactIcon: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1541,20 +1788,20 @@ contactUid = contactUid_example # String |  (default to null)
 
 try:
     # Returns contact icon in full resolution
-    api_response = api_instance.contacts_contact_uid_icon_get(contactUid)
+    api_response = api_instance.get_contact_icon(contactUid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->contactsContactUidIconGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getContactIcon: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsContactUidIconGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getContactIcon-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
     let contactUid = contactUid_example; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.contactsContactUidIconGet(contactUid, &context).wait();
+    let result = client.getContactIcon(contactUid, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1579,7 +1826,7 @@ pub fn main() {
 <td>
 
 
-    <div id="d2e199_contactsContactUidIconGet_contactUid">
+    <div id="d2e199_getContactIcon_contactUid">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1605,23 +1852,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsContactUidIconGet-title-200"></h3>
-                            <p id="examples-Default-contactsContactUidIconGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getContactIcon-title-200"></h3>
+                            <p id="examples-Default-getContactIcon-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `OK`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsContactUidIconGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getContactIcon-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-contactsContactUidIconGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsContactUidIconGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getContactIcon-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getContactIcon-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-contactsContactUidIconGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getContactIcon-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-contactsContactUidIconGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getContactIcon-200-schema">Schema</a>
                                 </li>
 
 
@@ -1630,9 +1877,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-contactsContactUidIconGet-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-contactsContactUidIconGet-200-schema">
-                                  <div id="responses-Default-contactsContactUidIconGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getContactIcon-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-getContactIcon-200-schema">
+                                  <div id="responses-Default-getContactIcon-schema-200" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1661,23 +1908,23 @@ pub fn main() {
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-contactsContactUidIconGet-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-contactsContactUidIconGet-schema-200');
+                                        $('#responses-Default-getContactIcon-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-getContactIcon-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-Default-contactsContactUidIconGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-Default-getContactIcon-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-contactsGet">
-                      <article id="api-Default-contactsGet-0" data-group="User" data-name="contactsGet" data-version="0">
+                    <div id="api-Default-getContacts">
+                      <article id="api-Default-getContacts-0" data-group="User" data-name="getContacts" data-version="0">
                         <div class="pull-left">
-                          <h1>contactsGet</h1>
+                          <h1>getContacts</h1>
                           <p>Returns list of my contacts</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1691,28 +1938,28 @@ pub fn main() {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getContacts-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContacts-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getContacts-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getContacts-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getContacts-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getContacts-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getContacts-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
  "https://shantichat.com/api/v1/contacts"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-contactsGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getContacts-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -1728,10 +1975,10 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            array[User] result = apiInstance.contactsGet();
+            array[User] result = apiInstance.getContacts();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsGet");
+            System.err.println("Exception when calling DefaultApi#getContacts");
             e.printStackTrace();
         }
     }
@@ -1739,7 +1986,7 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-contactsGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getContacts-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1747,27 +1994,27 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            array[User] result = apiInstance.contactsGet();
+            array[User] result = apiInstance.getContacts();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsGet");
+            System.err.println("Exception when calling DefaultApi#getContacts");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-contactsGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getContacts-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Returns list of my contacts
-[apiInstance contactsGetWithCompletionHandler: 
+[apiInstance getContactsWithCompletionHandler: 
               ^(array[User] output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1779,7 +2026,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
@@ -1791,14 +2038,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.contactsGet(callback);
+api.getContacts(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-contactsGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getContacts-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1807,7 +2054,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class contactsGetExample
+    public class getContactsExample
     {
         public void main()
         {
@@ -1817,10 +2064,10 @@ namespace Example
 
             try {
                 // Returns list of my contacts
-                array[User] result = apiInstance.contactsGet();
+                array[User] result = apiInstance.getContacts();
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getContacts: " + e.Message );
             }
         }
     }
@@ -1828,7 +2075,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1836,15 +2083,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 
 try {
-    $result = $api_instance->contactsGet();
+    $result = $api_instance->getContacts();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getContacts: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -1853,15 +2100,15 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 
 eval {
-    my $result = $api_instance->contactsGet();
+    my $result = $api_instance->getContacts();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->contactsGet: $@\n";
+    warn "Exception when calling DefaultApi->getContacts: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1873,19 +2120,19 @@ api_instance = openapi_client.DefaultApi()
 
 try:
     # Returns list of my contacts
-    api_response = api_instance.contacts_get()
+    api_response = api_instance.get_contacts()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->contactsGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getContacts: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getContacts-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
 
     let mut context = DefaultApi::Context::default();
-    let result = client.contactsGet(&context).wait();
+    let result = client.getContacts(&context).wait();
 
     println!("{:?}", result);
 }
@@ -1906,23 +2153,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsGet-title-200"></h3>
-                            <p id="examples-Default-contactsGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getContacts-title-200"></h3>
+                            <p id="examples-Default-getContacts-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `OK`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getContacts-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-contactsGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getContacts-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getContacts-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-contactsGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getContacts-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-contactsGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getContacts-200-schema">Schema</a>
                                 </li>
 
 
@@ -1931,9 +2178,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-contactsGet-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-contactsGet-200-schema">
-                                  <div id="responses-Default-contactsGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getContacts-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-getContacts-200-schema">
+                                  <div id="responses-Default-getContacts-schema-200" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1965,571 +2212,23 @@ pub fn main() {
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-contactsGet-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-contactsGet-schema-200');
+                                        $('#responses-Default-getContacts-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-getContacts-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-Default-contactsGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-Default-getContacts-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-contactsMeGet">
-                      <article id="api-Default-contactsMeGet-0" data-group="User" data-name="contactsMeGet" data-version="0">
+                    <div id="api-Default-getMyIcon">
+                      <article id="api-Default-getMyIcon-0" data-group="User" data-name="getMyIcon" data-version="0">
                         <div class="pull-left">
-                          <h1>contactsMeGet</h1>
-                          <p>Returns self contact</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/contacts/me</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsMeGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeGet-0-rust">Rust</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsMeGet-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
- -H "Accept: application/json" \
- "https://shantichat.com/api/v1/contacts/me"
-</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-contactsMeGet-0-java">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.model.*;
-import org.openapitools.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-    public static void main(String[] args) {
-
-        // Create an instance of the API class
-        DefaultApi apiInstance = new DefaultApi();
-
-        try {
-            User result = apiInstance.contactsMeGet();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeGet");
-            e.printStackTrace();
-        }
-    }
-}
-</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-contactsMeGet-0-android">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
-
-public class DefaultApiExample {
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-
-        try {
-            User result = apiInstance.contactsMeGet();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-contactsMeGet-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-
-// Create an instance of the API class
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Returns self contact
-[apiInstance contactsMeGetWithCompletionHandler: 
-              ^(User output, NSError* error) {
-    if (output) {
-        NSLog(@"%@", output);
-    }
-    if (error) {
-        NSLog(@"Error: %@", error);
-    }
-}];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
-
-// Create an instance of the API class
-var api = new ChatNodeApi.DefaultApi()
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.contactsMeGet(callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-contactsMeGet-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class contactsMeGetExample
-    {
-        public void main()
-        {
-
-            // Create an instance of the API class
-            var apiInstance = new DefaultApi();
-
-            try {
-                // Returns self contact
-                User result = apiInstance.contactsMeGet();
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsMeGet: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create an instance of the API class
-$api_instance = new OpenAPITools\Client\Api\DefaultApi();
-
-try {
-    $result = $api_instance->contactsMeGet();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsMeGet: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::OPenAPIClient::Configuration;
-use WWW::OPenAPIClient::DefaultApi;
-
-# Create an instance of the API class
-my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
-
-eval {
-    my $result = $api_instance->contactsMeGet();
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->contactsMeGet: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = openapi_client.DefaultApi()
-
-try:
-    # Returns self contact
-    api_response = api_instance.contacts_me_get()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->contactsMeGet: %s\n" % e)</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeGet-0-rust">
-                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
-
-pub fn main() {
-
-    let mut context = DefaultApi::Context::default();
-    let result = client.contactsMeGet(&context).wait();
-
-    println!("{:?}", result);
-}
-</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Scopes</h2>
-                          <table>
-                            
-                          </table>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsMeGet-title-200"></h3>
-                            <p id="examples-Default-contactsMeGet-description-200" class="marked"></p>
-                            <script>
-                              var responseDefault200_description = `OK`;
-                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
-                              if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsMeGet-title-200").text("Status: 200 - " + responseDefault200_description);
-                              } else {
-                                $("#examples-Default-contactsMeGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsMeGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-Default-contactsMeGet-200" class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-contactsMeGet-200-schema">Schema</a>
-                                </li>
-
-
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-Default-contactsMeGet-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-contactsMeGet-200-schema">
-                                  <div id="responses-Default-contactsMeGet-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "OK",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/User"
-      }
-    }
-  }
-};
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-contactsMeGet-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-contactsMeGet-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-Default-contactsMeGet-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-contactsMeIconDelete">
-                      <article id="api-Default-contactsMeIconDelete-0" data-group="User" data-name="contactsMeIconDelete" data-version="0">
-                        <div class="pull-left">
-                          <h1>contactsMeIconDelete</h1>
-                          <p>Remove self icon</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/contacts/me/icon</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsMeIconDelete-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeIconDelete-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeIconDelete-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconDelete-0-rust">Rust</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsMeIconDelete-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
- "https://shantichat.com/api/v1/contacts/me/icon"
-</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-java">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.model.*;
-import org.openapitools.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-    public static void main(String[] args) {
-
-        // Create an instance of the API class
-        DefaultApi apiInstance = new DefaultApi();
-
-        try {
-            apiInstance.contactsMeIconDelete();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeIconDelete");
-            e.printStackTrace();
-        }
-    }
-}
-</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-android">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
-
-public class DefaultApiExample {
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-
-        try {
-            apiInstance.contactsMeIconDelete();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeIconDelete");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-
-// Create an instance of the API class
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Remove self icon
-[apiInstance contactsMeIconDeleteWithCompletionHandler: 
-              ^(NSError* error) {
-    if (error) {
-        NSLog(@"Error: %@", error);
-    }
-}];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
-
-// Create an instance of the API class
-var api = new ChatNodeApi.DefaultApi()
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.contactsMeIconDelete(callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class contactsMeIconDeleteExample
-    {
-        public void main()
-        {
-
-            // Create an instance of the API class
-            var apiInstance = new DefaultApi();
-
-            try {
-                // Remove self icon
-                apiInstance.contactsMeIconDelete();
-            } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsMeIconDelete: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create an instance of the API class
-$api_instance = new OpenAPITools\Client\Api\DefaultApi();
-
-try {
-    $api_instance->contactsMeIconDelete();
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsMeIconDelete: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::OPenAPIClient::Configuration;
-use WWW::OPenAPIClient::DefaultApi;
-
-# Create an instance of the API class
-my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
-
-eval {
-    $api_instance->contactsMeIconDelete();
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->contactsMeIconDelete: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = openapi_client.DefaultApi()
-
-try:
-    # Remove self icon
-    api_instance.contacts_me_icon_delete()
-except ApiException as e:
-    print("Exception when calling DefaultApi->contactsMeIconDelete: %s\n" % e)</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-contactsMeIconDelete-0-rust">
-                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
-
-pub fn main() {
-
-    let mut context = DefaultApi::Context::default();
-    let result = client.contactsMeIconDelete(&context).wait();
-
-    println!("{:?}", result);
-}
-</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Scopes</h2>
-                          <table>
-                            
-                          </table>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsMeIconDelete-title-200"></h3>
-                            <p id="examples-Default-contactsMeIconDelete-description-200" class="marked"></p>
-                            <script>
-                              var responseDefault200_description = `OK`;
-                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
-                              if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsMeIconDelete-title-200").text("Status: 200 - " + responseDefault200_description);
-                              } else {
-                                $("#examples-Default-contactsMeIconDelete-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsMeIconDelete-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-Default-contactsMeIconDelete-200" class="nav nav-tabs nav-tabs-examples" >
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-Default-contactsMeIconDelete-200-wrapper" style='margin-bottom: 10px;'>
-                            </div>
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-contactsMeIconGet">
-                      <article id="api-Default-contactsMeIconGet-0" data-group="User" data-name="contactsMeIconGet" data-version="0">
-                        <div class="pull-left">
-                          <h1>contactsMeIconGet</h1>
+                          <h1>getMyIcon</h1>
                           <p>Returns self icon in full resolution</p>
                         </div>
                         <div class="pull-right"></div>
@@ -2543,28 +2242,28 @@ pub fn main() {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-contactsMeIconGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeIconGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-contactsMeIconGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-contactsMeIconGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getMyIcon-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMyIcon-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getMyIcon-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMyIcon-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getMyIcon-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getMyIcon-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-contactsMeIconGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getMyIcon-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
  "https://shantichat.com/api/v1/contacts/me/icon"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getMyIcon-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -2580,10 +2279,10 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            Image result = apiInstance.contactsMeIconGet();
+            Image result = apiInstance.getMyIcon();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeIconGet");
+            System.err.println("Exception when calling DefaultApi#getMyIcon");
             e.printStackTrace();
         }
     }
@@ -2591,7 +2290,7 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getMyIcon-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -2599,27 +2298,27 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            Image result = apiInstance.contactsMeIconGet();
+            Image result = apiInstance.getMyIcon();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#contactsMeIconGet");
+            System.err.println("Exception when calling DefaultApi#getMyIcon");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getMyIcon-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Returns self icon in full resolution
-[apiInstance contactsMeIconGetWithCompletionHandler: 
+[apiInstance getMyIconWithCompletionHandler: 
               ^(Image output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -2631,7 +2330,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
 
 // Create an instance of the API class
@@ -2643,14 +2342,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.contactsMeIconGet(callback);
+api.getMyIcon(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-contactsMeIconGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getMyIcon-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -2659,7 +2358,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class contactsMeIconGetExample
+    public class getMyIconExample
     {
         public void main()
         {
@@ -2669,10 +2368,10 @@ namespace Example
 
             try {
                 // Returns self icon in full resolution
-                Image result = apiInstance.contactsMeIconGet();
+                Image result = apiInstance.getMyIcon();
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.contactsMeIconGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getMyIcon: " + e.Message );
             }
         }
     }
@@ -2680,7 +2379,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -2688,15 +2387,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 
 try {
-    $result = $api_instance->contactsMeIconGet();
+    $result = $api_instance->getMyIcon();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->contactsMeIconGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMyIcon: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -2705,15 +2404,15 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 
 eval {
-    my $result = $api_instance->contactsMeIconGet();
+    my $result = $api_instance->getMyIcon();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->contactsMeIconGet: $@\n";
+    warn "Exception when calling DefaultApi->getMyIcon: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -2725,19 +2424,19 @@ api_instance = openapi_client.DefaultApi()
 
 try:
     # Returns self icon in full resolution
-    api_response = api_instance.contacts_me_icon_get()
+    api_response = api_instance.get_my_icon()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->contactsMeIconGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getMyIcon: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-contactsMeIconGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getMyIcon-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
 
     let mut context = DefaultApi::Context::default();
-    let result = client.contactsMeIconGet(&context).wait();
+    let result = client.getMyIcon(&context).wait();
 
     println!("{:?}", result);
 }
@@ -2758,23 +2457,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-contactsMeIconGet-title-200"></h3>
-                            <p id="examples-Default-contactsMeIconGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getMyIcon-title-200"></h3>
+                            <p id="examples-Default-getMyIcon-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `OK`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-contactsMeIconGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getMyIcon-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-contactsMeIconGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-contactsMeIconGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getMyIcon-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getMyIcon-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-contactsMeIconGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getMyIcon-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-contactsMeIconGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getMyIcon-200-schema">Schema</a>
                                 </li>
 
 
@@ -2783,9 +2482,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-contactsMeIconGet-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-contactsMeIconGet-200-schema">
-                                  <div id="responses-Default-contactsMeIconGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getMyIcon-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-getMyIcon-200-schema">
+                                  <div id="responses-Default-getMyIcon-schema-200" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -2814,14 +2513,315 @@ pub fn main() {
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-contactsMeIconGet-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-contactsMeIconGet-schema-200');
+                                        $('#responses-Default-getMyIcon-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-getMyIcon-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-Default-contactsMeIconGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-Default-getMyIcon-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-getMyInfo">
+                      <article id="api-Default-getMyInfo-0" data-group="User" data-name="getMyInfo" data-version="0">
+                        <div class="pull-left">
+                          <h1>getMyInfo</h1>
+                          <p>Returns self contact</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/contacts/me</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-getMyInfo-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMyInfo-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getMyInfo-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMyInfo-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getMyInfo-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getMyInfo-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-getMyInfo-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://shantichat.com/api/v1/contacts/me"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-getMyInfo-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+
+        try {
+            User result = apiInstance.getMyInfo();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getMyInfo");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-getMyInfo-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+
+        try {
+            User result = apiInstance.getMyInfo();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getMyInfo");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-getMyInfo-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Returns self contact
+[apiInstance getMyInfoWithCompletionHandler: 
+              ^(User output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ChatNodeApi = require('chat_node_api');
+
+// Create an instance of the API class
+var api = new ChatNodeApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getMyInfo(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-getMyInfo-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getMyInfoExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+
+            try {
+                // Returns self contact
+                User result = apiInstance.getMyInfo();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.getMyInfo: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+
+try {
+    $result = $api_instance->getMyInfo();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getMyInfo: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+
+eval {
+    my $result = $api_instance->getMyInfo();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->getMyInfo: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+
+try:
+    # Returns self contact
+    api_response = api_instance.get_my_info()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->getMyInfo: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getMyInfo-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.getMyInfo(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-getMyInfo-title-200"></h3>
+                            <p id="examples-Default-getMyInfo-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-getMyInfo-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-getMyInfo-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getMyInfo-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getMyInfo-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-getMyInfo-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getMyInfo-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-getMyInfo-200-schema">
+                                  <div id="responses-Default-getMyInfo-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/User"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-getMyInfo-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-getMyInfo-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-getMyInfo-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
