@@ -211,13 +211,13 @@ components:
                 object:
                 properties:
                   icon:
-                    - type: STRING
-                      readOnly: true
-                      required: false
+                    type: string
+                    readOnly: true
+                    required: false
                   bot:
-                    - type: string
-                      readOnly: true
-                      required: false
+                    type: string
+                    readOnly: true
+                    required: false
     Invite:
       title: 'Invite object'
       type: object
@@ -233,78 +233,14 @@ components:
           example: "1999-03-31 15:00:00.000"
           readOnly: true
           required: true
-
- "code": "yisEysLoLqxVwEYbf6gxbNgo3jfcaoxZ",
-        "invitee": null,
-        "created_at": "2021-11-05T22:00:39.413804Z",
-        "used_at": null
-
-#            last_online_at:
-#              type: string
-#              format: date-time
-#              example: "2020-07-10 15:00:00.000"
-#              allowEmptyValue: true
-#              readOnly: true
-#            icon:
-#              $ref: '#/components/schemas/Image'
-
-#    Image:
-#      title: 'Image for preview'
-#      type: object
-#      properties:
-#        url:
-#          type: string
-#          example: 'https://shantichat.com/data/V1StGXR8_Z5jdHi6B-myT/white-rabbit.png'
-#          readOnly: true
-#        width:
-#          type: int
-#          example: 128
-#          readOnly: true
-#        height:
-#          type: int
-#          example: 128
-#          readOnly: true
-#        blurhash:
-#          type: string
-#          example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
-#          allowEmptyValue: true
-#          readOnly: true
-#      required:
-#        - url
-#        - width
-#        - height
-
-# TODO:
-
-#  /conversations:
-#  /conversations/{conversationUid}:
-#  /conversations/{conversationUid}/media:
-#  /conversations/{conversationUid}/participants:
-#  /conversations/{conversationUid}/participants/{userUid}:
-#  /conversations/{conversationUid}/messages:
-#  /conversations/{conversationUid}/messages/{messageUid}:
-#  /conversations/{conversationUid}/messages/{messageUid}/read:
-#  /conversations/{conversationUid}/messages/{messageUid}/reactions:
-
-#  /invitations/invite:
-#
-#// ## Projects
-#// /api/v1/spaces
-#// /api/v1/spaces/[uid]
-#//
-#// /api/v1/spaces/[uid]/members
-#// /api/v1/spaces/[uid]/members/me
-#// /api/v1/spaces/[uid]/members/[uid]
-#//
-#// /api/v1/spaces/[uid]/conversations
-#// /api/v1/spaces/[uid]/conversations/[uid]
-#//
-#// /api/v1/spaces/[uid]/conversations/[uid]/media
-#//
-#// /api/v1/spaces/[uid]/conversations/[uid]/participants
-#// /api/v1/spaces/[uid]/conversations/[uid]/participants/[uid]
-#//
-#// /api/v1/spaces/[uid]/conversations/[uid]/messages
-#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]
-#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]/read
-#// /api/v1/spaces/[uid]/conversations/[uid]/messages/[uid]/reactions
+        used_at:
+          type: string
+          format: date-time
+          example: "1999-03-31 15:00:00.000"
+          readOnly: true
+          required: false
+        invitee:
+          type: string
+          format: nanoid
+          readOnly: true
+          required: false
