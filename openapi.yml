@@ -31,8 +31,6 @@ paths:
                       items:
                         type: string
                         example: ["icon", "msgreactions"]
-        default:
-          description: Unexpected error
   /users:
     get:
       summary: "Search users"
@@ -48,8 +46,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-        default:
-          description: Unexpected error
   /users/{userUid}:
     get:
       summary: "User information"
@@ -57,12 +53,7 @@ paths:
       operationId: getUserInfo
       tags: [ "core" ]
       parameters:
-        - name: userUid
-          in: path
-          required: true
-          schema:
-            type: string
-            format: nanoid
+        - $ref: "#/components/parameters/UserUid"
       responses:
         '200':
           description: OK
@@ -70,8 +61,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        default:
-          description: Unexpected error
   /users/me:
     get:
       summary: "Returns self contact"
@@ -85,8 +74,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        default:
-          description: Unexpected error
   /invites/:
     get:
       summary: "Invitation codes"
@@ -100,8 +87,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Invite'
-        default:
-          description: Unexpected error
+parameters:
+  UserUid:
+    name: userUid
+    in: path
+    required: true
+    schema:
+      type: string
+      format: nanoid
+      example: "njbusD52k6YoRG346tPgD"
 components:
   schemas:
     NewEntity:
@@ -193,6 +187,6 @@ components:
         invitee:
           type: string
           format: nanoid
-          example: 'njbusD52k6YoRG346tPgD'
+          example: "njbusD52k6YoRG346tPgD"
           readOnly: true
           required: false
