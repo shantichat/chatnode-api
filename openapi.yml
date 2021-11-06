@@ -102,55 +102,6 @@ paths:
                 $ref: '#/components/schemas/Invite'
         default:
           description: Unexpected error
-#  /users/me/icon:
-#    get:
-#      summary: "Returns self icon in full resolution"
-#      description: ""
-#      operationId: getMyIcon
-#      responses:
-#        '200':
-#          description: OK
-#          content:
-#            application/json:
-#              schema:
-#                $ref: '#/components/schemas/Image'
-#    delete:
-#      summary: "Remove self icon"
-#      description: ""
-#      operationId: deleteMyIcon
-#      responses:
-#        '200':
-#          description: OK
-
-#  /contacts/{userUid}/icon:
-#    get:
-#      summary: "Returns contact icon in full resolution"
-#      description: ""
-#      operationId: getUserIcon
-#      parameters:
-#        - name: userUid
-#          in: path
-#          required: true
-#          schema:
-#            type: string
-#            format: nanoid
-#      responses:
-#        '200':
-#          description: OK
-#          content:
-#            application/json:
-#              schema:
-#                $ref: '#/components/schemas/Image'
-
-#  /media:
-#    get:
-#      summary: "Returns list of my media"
-#
-#  /media/{mediaUid}:
-#    get:
-#      summary: "Returns media by UID"
-#
-
 components:
   schemas:
     NewEntity:
@@ -242,5 +193,6 @@ components:
         invitee:
           type: string
           format: nanoid
+          example: 'njbusD52k6YoRG346tPgD'
           readOnly: true
           required: false
