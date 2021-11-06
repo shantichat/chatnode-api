@@ -87,7 +87,21 @@ paths:
                 $ref: '#/components/schemas/User'
         default:
           description: Unexpected error
-
+  /invites/:
+    get:
+      summary: "Invitation codes"
+      description: "Used and unused invitation codes"
+      operationId: getInvites
+      tags: [ "invites" ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invite'
+        default:
+          description: Unexpected error
 #  /users/me/icon:
 #    get:
 #      summary: "Returns self icon in full resolution"
@@ -204,6 +218,26 @@ components:
                     - type: string
                       readOnly: true
                       required: false
+    Invite:
+      title: 'Invite object'
+      type: object
+      properties:
+        code:
+          type: string
+          example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
+          readOnly: true
+          required: true
+        created_at:
+          type: string
+          format: date-time
+          example: "1999-03-31 15:00:00.000"
+          readOnly: true
+          required: true
+
+ "code": "yisEysLoLqxVwEYbf6gxbNgo3jfcaoxZ",
+        "invitee": null,
+        "created_at": "2021-11-05T22:00:39.413804Z",
+        "used_at": null
 
 #            last_online_at:
 #              type: string
