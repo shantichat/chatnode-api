@@ -3,16 +3,42 @@ info:
   title: ChatNode API
   description: REST API prototype (unstalbe, still in active development)
   version: 0.1.0
-
 servers:
   - url: https://shantichat.com/api/v1
-
 paths:
-  /contacts:
+  /state:
     get:
-      summary: "Returns list of my contacts"
-      description: ''
-      operationId: getContacts
+      summary: "Server state"
+      description: "Information about server parameters. Can be used as ping"
+      operationId: getServerState
+      tags: [ "core" ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                - type: object
+                  properties:
+                    time:
+                      required: true
+                      type: string
+                      format: date-time
+                      example: "2038-01-19 03:14:00.000"
+                    extensions:
+                      required: true
+                      type: array
+                      items:
+                        type: string
+                        example: ["icon", "msgreactions"]
+        default:
+          description: Unexpected error
+  /users:
+    get:
+      summary: "Search users"
+      description: ""
+      operationId: getUsers
+      tags: [ "core" ]
       responses:
         '200':
           description: OK
@@ -22,12 +48,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-
-  /contacts/{userUid}:
+        default:
+          description: Unexpected error
+  /users/{userUid}:
     get:
-      summary: "Returns contact by UID"
-      description: ''
-      operationId: getContactInfo
+      summary: "User information"
+      description: ""
+      operationId: getUserInfo
+      tags: [ "core" ]
       parameters:
         - name: userUid
           in: path
@@ -42,32 +70,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-
-  /contacts/{userUid}/icon:
-    get:
-      summary: "Returns contact icon in full resolution"
-      description: ''
-      operationId: getContactIcon
-      parameters:
-        - name: userUid
-          in: path
-          required: true
-          schema:
-            type: string
-            format: nanoid
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Image'
-
-  /contacts/me:
+        default:
+          description: Unexpected error
+  /users/me:
     get:
       summary: "Returns self contact"
-      description: ''
+      description: ""
       operationId: getMyInfo
+      tags: [ "core" ]
       responses:
         '200':
           description: OK
@@ -75,26 +85,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        default:
+          description: Unexpected error
 
-  /contacts/me/icon:
-    get:
-      summary: "Returns self icon in full resolution"
-      description: ''
-      operationId: getMyIcon
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Image'
-    delete:
-      summary: "Remove self icon"
-      description: ''
-      operationId: deleteMyIcon
-      responses:
-        '200':
-          description: OK
+#  /users/me/icon:
+#    get:
+#      summary: "Returns self icon in full resolution"
+#      description: ""
+#      operationId: getMyIcon
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Image'
+#    delete:
+#      summary: "Remove self icon"
+#      description: ""
+#      operationId: deleteMyIcon
+#      responses:
+#        '200':
+#          description: OK
+
+#  /contacts/{userUid}/icon:
+#    get:
+#      summary: "Returns contact icon in full resolution"
+#      description: ""
+#      operationId: getUserIcon
+#      parameters:
+#        - name: userUid
+#          in: path
+#          required: true
+#          schema:
+#            type: string
+#            format: nanoid
+#      responses:
+#        '200':
+#          description: OK
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Image'
 
 #  /media:
 #    get:
@@ -107,9 +139,10 @@ paths:
 
 components:
   schemas:
-
-    BaseEntity:
-      title: 'Parent of most important objects'
+    NewEntity:
+      type: object
+      properties: {}
+    AliveEntity:
       type: object
       properties:
         uid:
@@ -117,48 +150,35 @@ components:
           format: nanoid
           example: 'njbusD52k6YoRG346tPgD'
           readOnly: true
+          required: true
         created_at:
           type: string
           format: date-time
           example: "1999-03-31 15:00:00.000"
           readOnly: true
+          required: true
         updated_at:
           type: string
           format: date-time
           example: "2020-07-10 10:10:00.000"
           readOnly: true
-        deleted:
-          type: boolean
-          example: false
-          allowEmptyValue: true
-          readOnly: true
-
-    Image:
-      title: 'Image for preview'
-      type: object
-      properties:
-        url:
-          type: string
-          example: 'https://shantichat.com/data/V1StGXR8_Z5jdHi6B-myT/white-rabbit.png'
-          readOnly: true
-        width:
-          type: int
-          example: 128
-          readOnly: true
-        height:
-          type: int
-          example: 128
-          readOnly: true
-        blurhash:
-          type: string
-          example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
-          allowEmptyValue: true
-          readOnly: true
-      required:
-        - url
-        - width
-        - height
-
+          required: true
+    DeletedEntity:
+      allOf:
+        - $ref: '#/components/schemas/AliveEntity'
+        - type: object
+          properties:
+            deleted:
+              type: boolean
+              example: true
+              readOnly: true
+              required: true
+    BaseEntity:
+      title: 'Parent of most important objects'
+      oneOf:
+        - $ref: '#/components/schemas/NewEntity'
+        - $ref: '#/components/schemas/AliveEntity'
+        - $ref: '#/components/schemas/DeletedEntity'
     User:
       title: 'User object'
       allOf:
@@ -168,22 +188,57 @@ components:
             name:
               type: string
               example: "Thomas A. Anderson"
-            description:
-              type: string
-              example: "The One"
-              allowEmptyValue: true
-            icon:
-              $ref: '#/components/schemas/Image'
             timezone:
               type: string
               example: "America/Chicago"
-              allowEmptyValue: true
-            last_online_at:
-              type: string
-              format: date-time
-              example: "2020-07-10 15:00:00.000"
-              allowEmptyValue: true
-              readOnly: true
+              required: false
+            ext:
+              type:
+                object:
+                properties:
+                  icon:
+                    - type: STRING
+                      readOnly: true
+                      required: false
+                  bot:
+                    - type: string
+                      readOnly: true
+                      required: false
+
+#            last_online_at:
+#              type: string
+#              format: date-time
+#              example: "2020-07-10 15:00:00.000"
+#              allowEmptyValue: true
+#              readOnly: true
+#            icon:
+#              $ref: '#/components/schemas/Image'
+
+#    Image:
+#      title: 'Image for preview'
+#      type: object
+#      properties:
+#        url:
+#          type: string
+#          example: 'https://shantichat.com/data/V1StGXR8_Z5jdHi6B-myT/white-rabbit.png'
+#          readOnly: true
+#        width:
+#          type: int
+#          example: 128
+#          readOnly: true
+#        height:
+#          type: int
+#          example: 128
+#          readOnly: true
+#        blurhash:
+#          type: string
+#          example: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj'
+#          allowEmptyValue: true
+#          readOnly: true
+#      required:
+#        - url
+#        - width
+#        - height
 
 # TODO:
 
