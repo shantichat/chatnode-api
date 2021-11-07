@@ -4,9 +4,9 @@ info:
   description: REST API prototype (unstalbe, still in active development)
   version: 0.1.0
 servers:
-  - url: https://shantichat.com/api/v1
+  - url: https://shantichat.com
 paths:
-  /state:
+  /api/v1/state:
     get:
       summary: "Server state"
       description: "Information about server parameters. Can be used as ping"
@@ -31,7 +31,7 @@ paths:
                     items:
                       type: string
                       example: ["icon", "msgreactions"]
-  /users:
+  /api/v1/users:
     get:
       summary: "Search users"
       description: ""
@@ -46,7 +46,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
-  /users/{userUid}:
+  /api/v1/users/{userUid}:
     get:
       summary: "User information"
       description: ""
@@ -61,7 +61,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
-  /users/me:
+  /api/v1/users/me:
     get:
       summary: "Returns self contact"
       description: ""
@@ -74,7 +74,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
-  /invites/:
+  /api/v1/invites/:
     get:
       summary: "Invitation codes"
       description: "Used and unused invitation codes"
