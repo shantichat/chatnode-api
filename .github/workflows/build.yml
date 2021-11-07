@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '17'
       - run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
       - run: npx openapi-typescript openapi.yaml --output openapi.ts
       - run: cat openapi.ts
