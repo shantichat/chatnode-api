@@ -152,17 +152,16 @@ components:
               example: "America/Chicago"
               required: false
             ext:
-              type:
-                object:
-                properties:
-                  icon:
-                    type: string
-                    readOnly: true
-                    required: false
-                  bot:
-                    type: string
-                    readOnly: true
-                    required: false
+              type: object
+              properties:
+                icon:
+                  type: string
+                  readOnly: true
+                  required: false
+                bot:
+                  type: string
+                  readOnly: true
+                  required: false
     Invite:
       title: 'Invite object'
       type: object
