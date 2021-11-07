@@ -14,7 +14,7 @@ jobs:
           repository: 'shantichat/chatnode-api-ts'
           ssh-key: ${{ secrets.TYPESCRIPT_DEPLOY_KEY }}
           path: dest
-      - run: ls -lah dest
+      - run: ls -lah dest/src
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
