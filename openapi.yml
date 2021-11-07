@@ -98,8 +98,8 @@ components:
         format: nanoid
         example: "njbusD52k6YoRG346tPgD"
   schemas:
-    BaseAliveObject:
-      title: "Base Alive object"
+    BaseEntity:
+      title: "Base object"
       description: "Part of Base schema with uid, created_at and updated_at"
       type: object
       properties:
@@ -108,70 +108,72 @@ components:
           format: nanoid
           example: "njbusD52k6YoRG346tPgD"
           readOnly: true
-          required: true
-          allowEmptyValue: false
-          nullable: false
         created_at:
           type: string
           format: date-time
           example: "1999-03-31 15:00:00.000"
           readOnly: true
-          required: true
         updated_at:
           type: string
           format: date-time
           example: "2020-07-10 10:10:00.000"
           readOnly: true
-          required: true
       required:
-      - uid
-      - created_at
-      - updated_at
-    Base:
-      title: "Parent of most important objects"
-      oneOf:
-        - type: object
-          description: "New empty object"
-          properties: {}
-        - $ref: "#/components/schemas/BaseAliveObject"
-        - allOf:
-          - $ref: "#/components/schemas/BaseAliveObject"
-          - type: object
-            description: "Deleted BaseAliveObject"
-            properties:
-              deleted:
-                type: boolean
-                example: true
-                readOnly: true
-                required: true
-            required:
-            - deleted
+        - uid
+        - created_at
+        - updated_at
+    DeletedEntity:
+      title: "Deleted object"
+      description: "Deleted object"
+      type: object
+      properties:
+          uid:
+            type: string
+            format: nanoid
+            example: "njbusD52k6YoRG346tPgD"
+            readOnly: true
+          updated_at:
+            type: string
+            format: date-time
+            example: "2020-07-10 10:10:00.000"
+            readOnly: true
+          deleted:
+            type: boolean
+            example: true
+            readOnly: true
+            required: true
+      required:
+        - uid
+        - updated_at
+        - deleted
     User:
       title: "User object"
-      allOf:
-        - $ref: "#/components/schemas/Base"
-        - type: object
-          properties:
-            name:
-              type: string
-              example: "Thomas A. Anderson"
-            timezone:
-              type: string
-              example: "America/Chicago"
-              required: false
-            ext:
-              type: object
-              properties:
-                icon:
-                  type: string
-                  readOnly: true
-                  required: false
-                bot:
-                  type: string
-                  readOnly: true
-                  required: false
+      anyOf:
+        - $ref: "#/components/schemas/DeletedEntity"
+        - allOf:
+           - $ref: "#/components/schemas/BaseEntity"
+           - type: object
+             properties:
+               name:
+                 type: string
+                 example: "Thomas A. Anderson"
+               timezone:
+                 type: string
+                 example: "America/Chicago"
+                 required: false
+               ext:
+                 type: object
+                 properties:
+                   icon:
+                     type: string
+                     readOnly: true
+                     required: false
+                   bot:
+                     type: string
+                     readOnly: true
+                     required: false
     Invite:
-      title: 'Invite object'
+      title: Invite information
       type: object
       properties:
         code:
@@ -198,7 +200,5 @@ components:
           readOnly: true
           required: false
       required:
-      - code
-      - created_at
-      - used_at
-      - invitee
+        - code
+        - created_at
