@@ -127,6 +127,10 @@ components:
               example: "2020-07-10 10:10:00.000"
               readOnly: true
               required: true
+          required:
+          - uid
+          - created_at
+          - updated_at
         - type: object
           description: "Deleted object"
           properties:
@@ -153,6 +157,11 @@ components:
               example: true
               readOnly: true
               required: true
+          required:
+          - uid
+          - created_at
+          - updated_at
+          - deleted
     User:
       title: "User object"
       allOf:
@@ -204,3 +213,8 @@ components:
           example: "njbusD52k6YoRG346tPgD"
           readOnly: true
           required: false
+      required:
+      - code
+      - created_at
+      - used_at
+      - invitee
