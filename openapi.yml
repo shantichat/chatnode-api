@@ -114,6 +114,7 @@ components:
               readOnly: true
               required: true
               allowEmptyValue: false
+              nullable: false
             created_at:
               type: string
               format: date-time
