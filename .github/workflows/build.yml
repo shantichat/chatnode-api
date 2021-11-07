@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  html:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -19,3 +19,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+  typescript:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install git+ssh://git@github.com/shantichat/openapi-typescript.git
+      - run: npx openapi-typescript openapi.yaml --output openapi.ts
+      - run: cat openapi.ts
