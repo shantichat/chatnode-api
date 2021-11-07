@@ -1,4 +1,4 @@
-name: Generate TypesSript
+name: Generate TypesScript
 
 on:
   push:
