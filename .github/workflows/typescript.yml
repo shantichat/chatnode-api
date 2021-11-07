@@ -23,12 +23,14 @@ jobs:
         run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
       - name: Generate index.ts
         run: npx openapi-typescript openapi.yml --output dest/src/index.ts
-      - name: Commit
-        run: |
-          git remote add tsorigin git@github.com:shantichat/chatnode-api-ts.git
-          git config --global user.email "action@github.com"
-          git config --global user.name "Github Action"
-          git add src/index.ts
-          git commit -m "Generate src/index.ts on $(date)" --allow-empty
-          git push tsorigin main
-        working-directory: dest
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'dest'
+          destination-github-username: 'shantichat'
+          destination-repository-name: 'chatnode-api-ts'
+          user-email: action@github.com
+          target-branch: main
+          commit-message: Generated src/index.ts
