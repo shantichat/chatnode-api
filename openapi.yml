@@ -98,6 +98,83 @@ components:
         format: nanoid
         example: "njbusD52k6YoRG346tPgD"
   schemas:
+    Base:
+      title: "Parent of most important objects"
+      oneOf:
+        - type: object
+          description: "New object"
+          properties: {}
+        - type: object
+          description: "Alive object"
+          properties:
+            uid:
+              type: string
+              format: nanoid
+              example: "njbusD52k6YoRG346tPgD"
+              readOnly: true
+              required: true
+            created_at:
+              type: string
+              format: date-time
+              example: "1999-03-31 15:00:00.000"
+              readOnly: true
+              required: true
+            updated_at:
+              type: string
+              format: date-time
+              example: "2020-07-10 10:10:00.000"
+              readOnly: true
+              required: true
+        - type: object
+          description: "Deleted object"
+          properties:
+            uid:
+              type: string
+              format: nanoid
+              example: "njbusD52k6YoRG346tPgD"
+              readOnly: true
+              required: true
+            created_at:
+              type: string
+              format: date-time
+              example: "1999-03-31 15:00:00.000"
+              readOnly: true
+              required: true
+            updated_at:
+              type: string
+              format: date-time
+              example: "2020-07-10 10:10:00.000"
+              readOnly: true
+              required: true
+            deleted:
+              type: boolean
+              example: true
+              readOnly: true
+              required: true
+    User:
+      title: "User object"
+      allOf:
+        - $ref: "#/components/schemas/Base"
+        - type: object
+          properties:
+            name:
+              type: string
+              example: "Thomas A. Anderson"
+            timezone:
+              type: string
+              example: "America/Chicago"
+              required: false
+            ext:
+              type: object
+              properties:
+                icon:
+                  type: string
+                  readOnly: true
+                  required: false
+                bot:
+                  type: string
+                  readOnly: true
+                  required: false
     Invite:
       title: 'Invite object'
       type: object
