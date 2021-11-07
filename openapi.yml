@@ -53,7 +53,7 @@ paths:
       operationId: getUserInfo
       tags: [ "core" ]
       parameters:
-        - $ref: "#/parameters/userUid"
+        - $ref: "#/components/parameters/userUid"
       responses:
         '200':
           description: OK
@@ -86,14 +86,42 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/invite.yml'
-parameters:
-  userUid:
-    name: userUid
-    in: path
-    required: true
-    schema:
-      type: string
-      format: nanoid
-      example: "njbusD52k6YoRG346tPgD"
-    
+                $ref: "#/components/schemas/Invite"
+components:
+  parameters:
+    userUid:
+      name: userUid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: nanoid
+        example: "njbusD52k6YoRG346tPgD"
+  schemas:
+    Invite:
+      title: 'Invite object'
+      type: object
+      properties:
+        code:
+          type: string
+          example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
+          readOnly: true
+          required: true
+        created_at:
+          type: string
+          format: date-time
+          example: "1999-03-31 15:00:00.000"
+          readOnly: true
+          required: true
+        used_at:
+          type: string
+          format: date-time
+          example: "1999-03-31 15:00:00.000"
+          readOnly: true
+          required: false
+        invitee:
+          type: string
+          format: nanoid
+          example: "njbusD52k6YoRG346tPgD"
+          readOnly: true
+          required: false
