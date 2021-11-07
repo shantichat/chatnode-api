@@ -45,7 +45,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: './schemas/User.yml'
+                  $ref: './schemas/user.yml'
   /users/{userUid}:
     get:
       summary: "User information"
@@ -60,7 +60,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/User.yml'
+                $ref: './schemas/user.yml'
   /users/me:
     get:
       summary: "Returns self contact"
@@ -73,7 +73,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/User.yml'
+                $ref: './schemas/user.yml'
   /invites/:
     get:
       summary: "Invitation codes"
@@ -86,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/Invite.yml'
+                $ref: './schemas/invite.yml'
 parameters:
   userUid:
     name: userUid
