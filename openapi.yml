@@ -99,8 +99,7 @@ components:
         example: "njbusD52k6YoRG346tPgD"
   schemas:
     BaseEntity:
-#      title: "Base object"
-#      description: "Part of Base schema with uid, created_at and updated_at"
+      title: "Base object"
       type: object
       properties:
         uid:
@@ -123,6 +122,7 @@ components:
         - created_at
         - updated_at
     DeletedEntity:
+      title: "Deleted object"
       type: object
       properties:
           uid:
@@ -169,8 +169,7 @@ components:
                      type: string
                      readOnly: true
                      required: false
-        - title: Deleted user
-          $ref: "#/components/schemas/DeletedEntity"
+        - $ref: "#/components/schemas/DeletedEntity"
     Invite:
       title: Invite information
       type: object
