@@ -164,7 +164,7 @@ components:
                       type: string
                       readOnly: true
                     bot:
-                      type: string
+                      type: boolean
                       readOnly: true
               required:
                 - name
