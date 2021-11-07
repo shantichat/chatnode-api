@@ -25,9 +25,10 @@ jobs:
         run: npx openapi-typescript openapi.yml --output dest/src/index.ts
       - name: Commit
         run: |
-          git add src/index.ts
-          git config --global user.email "action@github.com"
-          git config --global user.name "Github Action"
-          git commit -m "Generate src/index.ts on $(date)" --allow-empty
-          git push
+           ls -lah .
+#          git add src/index.ts
+#          git config --global user.email "action@github.com"
+#          git config --global user.name "Github Action"
+#          git commit -m "Generate src/index.ts on $(date)" --allow-empty
+#          git push
         working-directory: dest
