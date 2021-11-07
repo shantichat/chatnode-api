@@ -149,7 +149,6 @@ components:
     User:
       title: "User object"
       anyOf:
-        - $ref: "#/components/schemas/DeletedEntity"
         - allOf:
            - $ref: "#/components/schemas/BaseEntity"
            - type: object
@@ -172,6 +171,7 @@ components:
                      type: string
                      readOnly: true
                      required: false
+        - $ref: "#/components/schemas/DeletedEntity"
     Invite:
       title: Invite information
       type: object
