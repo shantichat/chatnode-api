@@ -98,70 +98,54 @@ components:
         format: nanoid
         example: "njbusD52k6YoRG346tPgD"
   schemas:
+    BaseAliveObject:
+      title: "Base Alive object"
+      description: "Part of Base schema with uid, created_at and updated_at"
+      type: object
+      properties:
+        uid:
+          type: string
+          format: nanoid
+          example: "njbusD52k6YoRG346tPgD"
+          readOnly: true
+          required: true
+          allowEmptyValue: false
+          nullable: false
+        created_at:
+          type: string
+          format: date-time
+          example: "1999-03-31 15:00:00.000"
+          readOnly: true
+          required: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2020-07-10 10:10:00.000"
+          readOnly: true
+          required: true
+      required:
+      - uid
+      - created_at
+      - updated_at
     Base:
       title: "Parent of most important objects"
       oneOf:
         - type: object
-          description: "New object"
+          description: "New empty object"
           properties: {}
-        - type: object
-          description: "Alive object"
-          properties:
-            uid:
-              type: string
-              format: nanoid
-              example: "njbusD52k6YoRG346tPgD"
-              readOnly: true
-              required: true
-              allowEmptyValue: false
-              nullable: false
-            created_at:
-              type: string
-              format: date-time
-              example: "1999-03-31 15:00:00.000"
-              readOnly: true
-              required: true
-            updated_at:
-              type: string
-              format: date-time
-              example: "2020-07-10 10:10:00.000"
-              readOnly: true
-              required: true
-          required:
-          - uid
-          - created_at
-          - updated_at
-        - type: object
-          description: "Deleted object"
-          properties:
-            uid:
-              type: string
-              format: nanoid
-              example: "njbusD52k6YoRG346tPgD"
-              readOnly: true
-              required: true
-            created_at:
-              type: string
-              format: date-time
-              example: "1999-03-31 15:00:00.000"
-              readOnly: true
-              required: true
-            updated_at:
-              type: string
-              format: date-time
-              example: "2020-07-10 10:10:00.000"
-              readOnly: true
-              required: true
-            deleted:
-              type: boolean
-              example: true
-              readOnly: true
-              required: true
-          required:
-          - uid
-          - created_at
-          - updated_at
-          - deleted
+        - $ref: "#/components/schemas/BaseAliveObject"
+        - allOf:
+          - $ref: "#/components/schemas/BaseAliveObject"
+          - type: object
+            description: "Deleted BaseAliveObject"
+            properties:
+              deleted:
+                type: boolean
+                example: true
+                readOnly: true
+                required: true
+            required:
+            - deleted
     User:
       title: "User object"
       allOf:
