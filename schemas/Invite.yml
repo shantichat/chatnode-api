@@ -1,0 +1,27 @@
+Invite:
+  title: 'Invite object'
+  type: object
+  properties:
+    code:
+      type: string
+      example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
+      readOnly: true
+      required: true
+    created_at:
+      type: string
+      format: date-time
+      example: "1999-03-31 15:00:00.000"
+      readOnly: true
+      required: true
+    used_at:
+      type: string
+      format: date-time
+      example: "1999-03-31 15:00:00.000"
+      readOnly: true
+      required: false
+    invitee:
+      type: string
+      format: nanoid
+      example: "njbusD52k6YoRG346tPgD"
+      readOnly: true
+      required: false

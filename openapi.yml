@@ -60,7 +60,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: './schemas/User.yml'
   /users/me:
     get:
       summary: "Returns self contact"
@@ -73,7 +73,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: './schemas/User.yml'
   /invites/:
     get:
       summary: "Invitation codes"
@@ -86,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invite'
+                $ref: './schemas/Invite.yml'
 parameters:
   userUid:
     name: userUid
@@ -96,32 +96,4 @@ parameters:
       type: string
       format: nanoid
       example: "njbusD52k6YoRG346tPgD"
-components:
-  schemas:
-    Invite:
-      title: 'Invite object'
-      type: object
-      properties:
-        code:
-          type: string
-          example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
-          readOnly: true
-          required: true
-        created_at:
-          type: string
-          format: date-time
-          example: "1999-03-31 15:00:00.000"
-          readOnly: true
-          required: true
-        used_at:
-          type: string
-          format: date-time
-          example: "1999-03-31 15:00:00.000"
-          readOnly: true
-          required: false
-        invitee:
-          type: string
-          format: nanoid
-          example: "njbusD52k6YoRG346tPgD"
-          readOnly: true
-          required: false
+    
