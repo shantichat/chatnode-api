@@ -19,9 +19,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '17'
-      - run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
-      - run: npx openapi-typescript openapi.yml --output dest/src/index.ts
-      - run: cat dest/index.ts
+      - name: Install generator 
+        run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
+      - name: Generate index.ts
+        run: npx openapi-typescript openapi.yml --output dest/src/index.ts
       - name: Commit
         run: |
           git add src/index.ts
