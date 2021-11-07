@@ -27,5 +27,13 @@ jobs:
         with:
           node-version: '17'
       - run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
-      - run: npx openapi-typescript openapi.yaml --output openapi.ts
+      - run: npx openapi-typescript openapi.yml --output openapi.ts
       - run: cat openapi.ts
+      - uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source_file: openapi.ts
+          destination_repo: 'shantichat/chatnode-api-ts'
+          destination_folder: 'chatnode'
+          commit_message: 'API update'
