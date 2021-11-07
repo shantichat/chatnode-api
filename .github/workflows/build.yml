@@ -26,6 +26,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: npm install git+ssh://git@github.com/shantichat/openapi-typescript.git
+      - run: npm install git+https://github.com/shantichat/openapi-typescript.git
       - run: npx openapi-typescript openapi.yaml --output openapi.ts
       - run: cat openapi.ts
