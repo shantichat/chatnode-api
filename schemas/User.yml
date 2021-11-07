@@ -1,7 +1,7 @@
 User:
   title: 'User object'
   allOf:
-    - $ref: './BaseEntity.yml'
+    - $ref: './base.yml'
     - type: object
       properties:
         name:

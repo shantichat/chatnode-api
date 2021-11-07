@@ -1,5 +1,5 @@
 BaseEntity:
-  title: 'Parent of most important objects'
+  title: "Parent of most important objects"
   oneOf:
     - type: object
       description: "New object"
@@ -10,7 +10,7 @@ BaseEntity:
         uid:
           type: string
           format: nanoid
-          example: 'njbusD52k6YoRG346tPgD'
+          example: "njbusD52k6YoRG346tPgD"
           readOnly: true
           required: true
         created_at:
@@ -31,7 +31,7 @@ BaseEntity:
         uid:
           type: string
           format: nanoid
-          example: 'njbusD52k6YoRG346tPgD'
+          example: "njbusD52k6YoRG346tPgD"
           readOnly: true
           required: true
         created_at:
