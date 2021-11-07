@@ -18,19 +18,19 @@ paths:
           content:
             application/json:
               schema:
-                - type: object
-                  properties:
-                    time:
-                      required: true
+                type: object
+                properties:
+                  time:
+                    required: true
+                    type: string
+                    format: date-time
+                    example: "2038-01-19 03:14:00.000"
+                  extensions:
+                    required: true
+                    type: array
+                    items:
                       type: string
-                      format: date-time
-                      example: "2038-01-19 03:14:00.000"
-                    extensions:
-                      required: true
-                      type: array
-                      items:
-                        type: string
-                        example: ["icon", "msgreactions"]
+                      example: ["icon", "msgreactions"]
   /users:
     get:
       summary: "Search users"
