@@ -148,27 +148,26 @@ components:
       anyOf:
         - title: User object
           allOf:
-           - $ref: "#/components/schemas/BaseEntity"
-           - type: object
-             properties:
-               name:
-                 type: string
-                 example: "Thomas A. Anderson"
-               timezone:
-                 type: string
-                 example: "America/Chicago"
-                 required: false
-               ext:
-                 type: object
-                 properties:
-                   icon:
-                     type: string
-                     readOnly: true
-                     required: false
-                   bot:
-                     type: string
-                     readOnly: true
-                     required: false
+            - $ref: "#/components/schemas/BaseEntity"
+            - type: object
+              properties:
+                name:
+                  type: string
+                  example: "Thomas A. Anderson"
+                timezone:
+                  type: string
+                  example: "America/Chicago"
+                ext:
+                  type: object
+                  properties:
+                    icon:
+                      type: string
+                      readOnly: true
+                    bot:
+                      type: string
+                      readOnly: true
+              required:
+                - name
         - $ref: "#/components/schemas/DeletedEntity"
     Invite:
       title: Invite information
