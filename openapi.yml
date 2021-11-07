@@ -34,7 +34,7 @@ paths:
   /api/v1/users:
     get:
       summary: "Search users"
-      description: ""
+      description: "Users lookup"
       operationId: getUsers
       tags: [ "core" ]
       responses:
@@ -49,7 +49,7 @@ paths:
   /api/v1/users/{userUid}:
     get:
       summary: "User information"
-      description: ""
+      description: "Full information about user"
       operationId: getUserInfo
       tags: [ "core" ]
       parameters:
@@ -64,7 +64,7 @@ paths:
   /api/v1/users/me:
     get:
       summary: "Returns self contact"
-      description: ""
+      description: "Full information about self"
       operationId: getMyInfo
       tags: [ "core" ]
       responses:
