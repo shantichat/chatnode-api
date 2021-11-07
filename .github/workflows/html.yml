@@ -1,0 +1,19 @@
+name: Generate HTML
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  html:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: mkdir public
+      - uses: seeebiii/redoc-cli-github-action@v10
+        with:
+          args: 'bundle openapi.yml -o public/index.html'
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

@@ -1,0 +1,32 @@
+name: Generate TypesSript
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  typescript:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Clone dest repository
+        uses: actions/checkout@v2
+        with:
+          repository: 'shantichat/chatnode-api-ts'
+          ssh-key: ${{ secrets.TYPESCRIPT_DEPLOY_KEY }}
+          ref: main
+          path: dest
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '17'
+      - run: npm install --save-dev git+https://github.com/shantichat/openapi-typescript.git
+      - run: npx openapi-typescript openapi.yml --output dest/src/index.ts
+      - run: cat dest/index.ts
+      - name: Commit
+        run: |
+          git add src/index.ts
+          git config --global user.email "action@github.com"
+          git config --global user.name "Github Action"
+          git commit -m "Generate src/index.ts on $(date)" --allow-empty
+          git push
+        working-directory: dest
