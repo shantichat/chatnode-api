@@ -188,31 +188,27 @@ components:
                 - icon
         - $ref: "#/components/schemas/DeletedEntity"
     Invite:
-      title: Invite information
-      type: object
-      properties:
-        code:
-          type: string
-          example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
-          readOnly: true
-        created_at:
-          type: string
-          format: date-time
-          example: "1999-03-31 15:00:00.000"
-          readOnly: true
-        used_at:
-          type: string
-          format: date-time
-          example: "1999-03-31 15:00:00.000"
-          readOnly: true
-        invitee:
-          type: string
-          format: nanoid
-          example: "njbusD52k6YoRG346tPgD"
-          readOnly: true
-      required:
-        - code
-        - created_at
+      anyOf:
+        - title: Invite information
+          allOf:
+            - $ref: "#/components/schemas/BaseEntity"
+            - type: object
+              properties:
+                code:
+                  type: string
+                  example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
+                  readOnly: true
+                used_at:
+                  type: string
+                  format: date-time
+                  example: "1999-03-31 15:00:00.000"
+                  readOnly: true
+                invitee:
+                  $ref: "#/components/schemas/User"
+              required:
+                - code
+                - created_at
+        - $ref: "#/components/schemas/DeletedEntity"
     InvitePreview:
       tilte: Inite preivew
       type: object
@@ -226,4 +222,3 @@ components:
         required:
           - inviter
           - is_used
-
