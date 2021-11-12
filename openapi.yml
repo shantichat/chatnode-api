@@ -9,7 +9,7 @@ paths:
   /api/v1/state:
     get:
       summary: "Server state"
-      description: "Information about server parameters. Can be used as ping"
+      description: "Information about server parameters. Alse can be used as ping"
       operationId: getServerState
       tags: [ "core" ]
       responses:
@@ -30,7 +30,7 @@ paths:
                     type: array
                     items:
                       type: string
-                      example: ["icon", "msgreactions"]
+                      example: ["msgreactions"]
   /api/v1/users:
     get:
       summary: "Search users"
@@ -87,6 +87,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Invite"
+  /api/v1/invites/preview/:
+    get:
+      summary: "Invitation preview"
+      description: "Information about invitation accectablility and invitee"
+      operationId: getInvites
+      tags: [ "invites" ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvitePreview"
 components:
   parameters:
     userUid:
@@ -154,6 +167,11 @@ components:
                 name:
                   type: string
                   example: "Thomas A. Anderson"
+                icon:
+                  type: string
+                  example: "https://shantichat.github.io/avacats/120x120/99.jpg"
+                  readOnly: true
+                  required: true
                 timezone:
                   type: string
                   example: "America/Chicago"
@@ -199,3 +217,14 @@ components:
       required:
         - code
         - created_at
+    InvitePreview:
+      tilte: Inite preivew
+      type: object
+      properties:
+        inviter:
+          $ref: "#/components/schemas/User"
+        is_used:
+          type: boolean
+          example: false
+          readOnly: true
+          required: true
