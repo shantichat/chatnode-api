@@ -85,6 +85,19 @@ paths:
           content:
             application/json:
               schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Invite"
+    post: 
+      summary: "Create new invitation code"
+      operationId: createInvite
+      tags: [ "invites" ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
                 $ref: "#/components/schemas/Invite"
   /api/v1/invites/preview/:
     get:
@@ -210,4 +223,3 @@ components:
       format: date-time
       example: "1999-03-31 15:00:00.000"
       readOnly: true
-
