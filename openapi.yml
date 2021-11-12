@@ -113,7 +113,7 @@ components:
         example: "njbusD52k6YoRG346tPgD"
   schemas:
     BaseEntity:
-      title: "Base object"
+      title: "Base entity"
       type: object
       properties:
         uid:
@@ -136,7 +136,7 @@ components:
         - created_at
         - updated_at
     DeletedEntity:
-      title: "Deleted object"
+      title: "Deleted entity"
       type: object
       properties:
           uid:
@@ -159,7 +159,7 @@ components:
         - deleted
     User:
       anyOf:
-        - title: User object
+        - title: User
           allOf:
             - $ref: "#/components/schemas/BaseEntity"
             - type: object
