@@ -177,9 +177,6 @@ components:
                 ext:
                   type: object
                   properties:
-                    icon:
-                      type: string
-                      readOnly: true
                     bot:
                       type: boolean
                       readOnly: true
