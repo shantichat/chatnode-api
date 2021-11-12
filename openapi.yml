@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://shantichat.com
 paths:
-  /api/v1/state:
+  /api/v1/state/:
     get:
       summary: "Server state"
       description: "Information about server parameters. Alse can be used as ping"
@@ -32,7 +32,7 @@ paths:
                 required:
                   - time
                   - extensions
-  /api/v1/users:
+  /api/v1/users/:
     get:
       summary: "Search users"
       description: "Users lookup"
@@ -47,7 +47,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
-  /api/v1/users/{userUid}:
+  /api/v1/users/{userUid}/:
     get:
       summary: "User information"
       description: "Full information about user"
@@ -62,7 +62,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
-  /api/v1/users/me:
+  /api/v1/users/me/:
     get:
       summary: "Returns self contact"
       description: "Full information about self"
