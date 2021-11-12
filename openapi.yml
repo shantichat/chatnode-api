@@ -21,16 +21,17 @@ paths:
                 type: object
                 properties:
                   time:
-                    required: true
                     type: string
                     format: date-time
                     example: "2038-01-19 03:14:00.000"
                   extensions:
-                    required: true
                     type: array
                     items:
                       type: string
                       example: ["msgreactions"]
+                required:
+                  - time
+                  - extensions
   /api/v1/users:
     get:
       summary: "Search users"
@@ -65,7 +66,7 @@ paths:
     get:
       summary: "Returns self contact"
       description: "Full information about self"
-      operationId: getMe
+      operationId: getMyInfo
       tags: [ "core" ]
       responses:
         '200':
@@ -152,7 +153,6 @@ components:
             type: boolean
             example: true
             readOnly: true
-            required: true
       required:
         - uid
         - updated_at
@@ -171,7 +171,6 @@ components:
                   type: string
                   example: "https://shantichat.github.io/avacats/120x120/99.jpg"
                   readOnly: true
-                  required: true
                 timezone:
                   type: string
                   example: "America/Chicago"
@@ -186,6 +185,7 @@ components:
                       readOnly: true
               required:
                 - name
+                - icon
         - $ref: "#/components/schemas/DeletedEntity"
     Invite:
       title: Invite information
@@ -195,25 +195,21 @@ components:
           type: string
           example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
           readOnly: true
-          required: true
         created_at:
           type: string
           format: date-time
           example: "1999-03-31 15:00:00.000"
           readOnly: true
-          required: true
         used_at:
           type: string
           format: date-time
           example: "1999-03-31 15:00:00.000"
           readOnly: true
-          required: false
         invitee:
           type: string
           format: nanoid
           example: "njbusD52k6YoRG346tPgD"
           readOnly: true
-          required: false
       required:
         - code
         - created_at
@@ -227,4 +223,7 @@ components:
           type: boolean
           example: false
           readOnly: true
-          required: true
+        required:
+          - inviter
+          - is_used
+
