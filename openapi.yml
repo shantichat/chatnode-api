@@ -65,7 +65,7 @@ paths:
     get:
       summary: "Returns self contact"
       description: "Full information about self"
-      operationId: getMyInfo
+      operationId: getMe
       tags: [ "core" ]
       responses:
         '200':
@@ -91,7 +91,7 @@ paths:
     get:
       summary: "Invitation preview"
       description: "Information about invitation accectablility and invitee"
-      operationId: getInvites
+      operationId: getInvitePreview
       tags: [ "invites" ]
       responses:
         '200':
