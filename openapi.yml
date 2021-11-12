@@ -21,9 +21,7 @@ paths:
                 type: object
                 properties:
                   time:
-                    type: string
-                    format: date-time
-                    example: "2038-01-19 03:14:00.000"
+                    $ref: "#/components/schemas/ISODateTime"
                   extensions:
                     type: array
                     items:
@@ -122,15 +120,9 @@ components:
           example: "njbusD52k6YoRG346tPgD"
           readOnly: true
         created_at:
-          type: string
-          format: date-time
-          example: "1999-03-31 15:00:00.000"
-          readOnly: true
+          $ref: "#/components/schemas/ISODateTime"
         updated_at:
-          type: string
-          format: date-time
-          example: "2020-07-10 10:10:00.000"
-          readOnly: true
+          $ref: "#/components/schemas/ISODateTime"
       required:
         - uid
         - created_at
@@ -145,10 +137,7 @@ components:
             example: "njbusD52k6YoRG346tPgD"
             readOnly: true
           updated_at:
-            type: string
-            format: date-time
-            example: "2020-07-10 10:10:00.000"
-            readOnly: true
+            $ref: "#/components/schemas/ISODateTime"
           deleted:
             type: boolean
             example: true
@@ -193,13 +182,10 @@ components:
               properties:
                 code:
                   type: string
-                  example: "yisEysLofqxVwEYbf6gxbNg13jfcaoxZ"
+                  example: "h8mTUVPCZSQ3uVPi9Tk90kKnPyc4Hhf4vYUwSVYN10U0Z3vSKD1MZGwyKdNNqcPN"
                   readOnly: true
                 used_at:
-                  type: string
-                  format: date-time
-                  example: "1999-03-31 15:00:00.000"
-                  readOnly: true
+                  $ref: "#/components/schemas/ISODateTime"
                 invitee:
                   $ref: "#/components/schemas/User"
               required:
@@ -219,3 +205,9 @@ components:
         required:
           - inviter
           - is_used
+    ISODateTime:
+      type: string
+      format: date-time
+      example: "1999-03-31 15:00:00.000"
+      readOnly: true
+
