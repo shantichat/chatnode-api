@@ -135,8 +135,12 @@ paths:
         content:
           application/json:
             schema:
-              code:
-                $ref: "#/components/schemas/InviteCode"
+              type: object
+              properties:
+                code:
+                  $ref: "#/components/schemas/InviteCode"
+              required:
+                - code
       responses:
         '200':
           description: OK
@@ -156,16 +160,20 @@ paths:
         content:
           application/json:
             schema:
-              code:
-                $ref: "#/components/schemas/InviteCode"
-              username:
-                type: string
-                required: true
-              name:
-                type: string
-              password:
-                type: string
-                required: true
+              type: object
+              properties:
+                code:
+                  $ref: "#/components/schemas/InviteCode"
+                username:
+                  type: string
+                name:
+                  type: string
+                password:
+                  type: string
+              required:
+                - code
+                - password
+                - username
       responses:
         '201':
           description: User created
