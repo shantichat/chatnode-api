@@ -1,11 +1,15 @@
 openapi: 3.1.0
+
 info:
   title: ChatNode API
   description: REST API prototype (unstalbe, still in active development)
   version: 0.1.0
+
 servers:
   - url: https://shantichat.com
+
 paths:
+
   /api/v1/state/:
     get:
       summary: "Server state"
@@ -30,11 +34,12 @@ paths:
                 required:
                   - time
                   - extensions
+
   /api/v1/users/:
     get:
       summary: "Search users"
       description: "Users lookup"
-      operationId: getUsers
+      operationId: getUserList
       tags: [ "core" ]
       responses:
         '200':
@@ -45,11 +50,12 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
+
   /api/v1/users/{userUid}/:
     get:
       summary: "User information"
       description: "Full information about user"
-      operationId: getUserInfo
+      operationId: getUser
       tags: [ "core" ]
       parameters:
         - $ref: "#/components/parameters/userUid"
@@ -60,11 +66,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+
   /api/v1/users/me/:
     get:
       summary: "Returns self contact"
       description: "Full information about self"
-      operationId: getMyInfo
+      operationId: getMe
       tags: [ "core" ]
       responses:
         '200':
@@ -73,11 +80,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+
+## ext.invites ##
+
   /api/v1/invites/:
     get:
       summary: "Invitation codes"
       description: "Used and unused invitation codes"
-      operationId: getInvites
+      operationId: getInviteList
       tags: [ "invites" ]
       responses:
         '200':
@@ -93,17 +103,18 @@ paths:
       operationId: createInvite
       tags: [ "invites" ]
       responses:
-        '200':
+        '201':
           description: OK
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Invite"
-  /api/v1/invites/preview/:
+
+  /api/v1/invites/{inviteUid}/:
     get:
-      summary: "Invitation preview"
-      description: "Information about invitation accectablility and invitee"
-      operationId: getInvitePreview
+      summary: "Invitation code"
+      description: "Used and unused invitation codes"
+      operationId: getInvite
       tags: [ "invites" ]
       responses:
         '200':
@@ -111,9 +122,70 @@ paths:
           content:
             application/json:
               schema:
+                $ref: "#/components/schemas/Invite"
+
+  /api/v1/invites/preview/:
+    post:
+      summary: "Invitation preview"
+      description: "Information about invitation accectablility and invitee"
+      operationId: previewInvite
+      tags: [ "invites" ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              code:
+                $ref: "#/components/schemas/InviteCode"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
                 $ref: "#/components/schemas/InvitePreview"
+
+  /api/v1/invites/accept/:
+    post:
+      summary: "Accept invite"
+      description: "Information about invitation accectablility and invitee"
+      operationId: acceptInvite
+      tags: [ "invites" ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              code:
+                $ref: "#/components/schemas/InviteCode"
+              username:
+                type: string
+                required: true
+              name:
+                type: string
+              password:
+                type: string
+                required: true
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        '200':
+          description: Already logged in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+## Components ##
+
 components:
+  
   parameters:
+
     userUid:
       name: userUid
       in: path
@@ -122,7 +194,9 @@ components:
         type: string
         format: nanoid
         example: "njbusD52k6YoRG346tPgD"
+  
   schemas:
+  
     BaseEntity:
       title: "Base entity"
       type: object
@@ -140,6 +214,7 @@ components:
         - uid
         - created_at
         - updated_at
+    
     DeletedEntity:
       title: "Deleted entity"
       type: object
@@ -159,6 +234,7 @@ components:
         - uid
         - updated_at
         - deleted
+    
     User:
       anyOf:
         - title: User
@@ -166,6 +242,9 @@ components:
             - $ref: "#/components/schemas/BaseEntity"
             - type: object
               properties:
+                username:
+                  type: string
+                  example: neo
                 name:
                   type: string
                   example: "Thomas A. Anderson"
@@ -186,6 +265,7 @@ components:
                 - name
                 - icon
         - $ref: "#/components/schemas/DeletedEntity"
+    
     Invite:
       anyOf:
         - title: Invite information
@@ -194,9 +274,7 @@ components:
             - type: object
               properties:
                 code:
-                  type: string
-                  example: "h8mTUVPCZSQ3uVPi9Tk90kKnPyc4Hhf4vYUwSVYN10U0Z3vSKD1MZGwyKdNNqcPN"
-                  readOnly: true
+                  $ref: "#/components/schemas/InviteCode"
                 used_at:
                   $ref: "#/components/schemas/ISODateTime"
                 invitee:
@@ -205,6 +283,12 @@ components:
                 - code
                 - created_at
         - $ref: "#/components/schemas/DeletedEntity"
+    
+    InviteCode:
+      type: string
+      example: "h8mTUVPCZSQ3uVPi9Tk90kKnPyc4Hhf4vYUwSVYN10U0Z3vSKD1MZGwyKdNNqcPN" 
+      required: true
+    
     InvitePreview:
       tilte: Inite preivew
       type: object
@@ -218,6 +302,7 @@ components:
         required:
           - inviter
           - is_used
+
     ISODateTime:
       type: string
       format: date-time
