@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: 'shantichat/chatnode-api-ts'
-          ssh-key: ${{ secrets.TYPESCRIPT_DEPLOY_KEY }}
+          token: ${{ secrets.API_TOKEN_GITHUB }}
           path: dest
       - run: ls -lah dest/src
       - uses: actions/checkout@v2
